@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1>Contactanos</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+Si tiene consultas comerciales u otras preguntas, por favor, rellene el siguiente formulario para contactar con nosotros. Gracias.
 </p>
 
 <div class="form">
@@ -68,14 +68,14 @@ If you have business inquiries or other questions, please fill out the following
 		<?php $this->widget('CCaptcha'); ?>
 		<?php echo $form->textField($model,'verifyCode'); ?>
 		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.</div>
+		<div class="hint">Por favor, introduzca las letras que se muestran en la imagen de arriba.
+		<br/>Las letras no distinguen entre mayúsculas y minúsculas</div>
 		<?php echo $form->error($model,'verifyCode'); ?>
 	</div>
 	<?php endif; ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton('ENVIAR'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -68,7 +68,7 @@ class Usuario extends CActiveRecord
 		return array(
 			'id_usuario' => 'ID',
 			'usuario' => 'Usuario',
-			'contrasena' => 'Contraseña',
+			'contrasena' => 'Contrase&ntildea',
 			'nombres' => 'Nombres',
 			'primer_apellido' => 'Primer Apellido',
 			'segundo_apellido' => 'Segundo Apellido',
