@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Riesgo', 'url'=>array('index')),
-	array('label'=>'Create Riesgo', 'url'=>array('create')),
-	array('label'=>'View Riesgo', 'url'=>array('view', 'id'=>$model->id_riesgo)),
-	array('label'=>'Manage Riesgo', 'url'=>array('admin')),
+	array('label'=>'Listar Riesgo', 'url'=>array('index')),
+	array('label'=>'Crear Riesgo', 'url'=>array('create')),
+	array('label'=>'Ver Riesgo', 'url'=>array('view', 'id'=>$model->id_riesgo)),
+	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Riesgo <?php echo $model->id_riesgo; ?></h1>
+<h1>Actualizar Riesgo <?php echo $model->id_riesgo; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

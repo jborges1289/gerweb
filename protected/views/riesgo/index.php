@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Riesgo', 'url'=>array('create')),
-	array('label'=>'Manage Riesgo', 'url'=>array('admin')),
+	array('label'=>'Crear Riesgo', 'url'=>array('create')),
+	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
 );
 ?>
 
