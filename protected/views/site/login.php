@@ -34,9 +34,9 @@ $this->breadcrumbs=array(
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
-		<p class="hint">
+<!--		<p class="hint">
 			Sugerencia: Es posible ingresar con <kbd>demo</kbd>/<kbd>demo</kbd> o <kbd>admin</kbd>/<kbd>admin</kbd>.
-		</p>
+		</p>-->
 	</div>
 
 	<div class="row rememberMe">
@@ -46,7 +46,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
+		<?php echo CHtml::submitButton('Entrar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

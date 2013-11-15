@@ -20,7 +20,16 @@ class SiteController extends Controller
 			),
 		);
 	}
-
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('site/index','view'),
+				'users'=>array('@'),
+			),
+			
+		);
+	}
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.

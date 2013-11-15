@@ -10,6 +10,7 @@ return array(
 	'name'=>'GERWEB',
      'theme'=>'blackboot',
      'language'=>'es',
+    'defaultController' => 'Site/login',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
