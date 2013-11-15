@@ -51,10 +51,10 @@
 						'htmlOptions' => array( 'class' => 'nav' ),
 						'activeCssClass'	=> 'active',
 						'items'=>array(
-							array('label'=>'Inicio', 'url'=>array('/site/index')),
+                                                        array('label'=>'Inicio', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Inicio', 'url'=>array('/site/index')),
 							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about')),
 							array('label'=>'Contacto', 'url'=>array('/site/contact')),
-							array('label'=>'Entrar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 						),
 					)); ?>

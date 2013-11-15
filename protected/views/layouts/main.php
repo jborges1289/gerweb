@@ -29,11 +29,12 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Inicio', 'url'=>array('/site/index')),
+                                array('label'=>'Inicio', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                                array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+//				array('label'=>'Inicio', 'url'=>array('/site/index')),
 				array('label'=>'Acerca de', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contactanos', 'url'=>array('/site/contact')),
-				array('label'=>'Ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				
 			),
 		)); ?>
 	</div><!-- mainmenu -->

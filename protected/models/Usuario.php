@@ -100,7 +100,7 @@ class Usuario extends CActiveRecord
 		$criteria->compare('nombres',$this->nombres,true);
 		$criteria->compare('primer_apellido',$this->primer_apellido,true);
 		$criteria->compare('segundo_apellido',$this->segundo_apellido,true);
-		$criteria->compare('discriminador',$this->discriminador);
+		$criteria->compare('discriminador',$this->discriminador,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

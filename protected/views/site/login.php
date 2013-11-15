@@ -3,15 +3,15 @@
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
 
-$this->pageTitle=Yii::app()->name . ' - Login';
+$this->pageTitle=Yii::app()->name . ' - Inicio';
 $this->breadcrumbs=array(
-	'Login',
+	'Inicio',
 );
 ?>
 
 <h1>Ingresar</h1>
 
-<p>Por favor complete el siguiente formulario con sus datos de acceso:</p>
+<p class="alert alert-info">Por favor complete el siguiente formulario con sus datos de acceso:</p>
 
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -22,7 +22,7 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
+	<p class="note">Campos con <span class="required" >*</span> son requeridos.</p>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
