@@ -3,13 +3,13 @@
 /* @var $model Usuario */
 
 $this->breadcrumbs=array(
-	'Usuarios'=>array('index'),
-	'Manage',
+	'Proyecto'=>array('index'),
+	'Gestion de Riesgos',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Usuario', 'url'=>array('index')),
-	array('label'=>'Crear Usuario', 'url'=>array('create')),
+	array('label'=>'Crear Proyecto', 'url'=>array('create')),
+	array('label'=>'Crear Usuario', 'url'=>array('usuario/create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Usuarios</h1>
+<h1>Gestión de Riesgos</h1>
 
 <p>
 También puede escribir un operador de comparación (<b> << / b>, <b> <= </ b>, <b>> </ b>, <b>> = </ b>, <b> <> </ b>
@@ -45,14 +45,14 @@ o <b> = </ b>) al principio de cada uno de los valores de búsqueda para especif
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id_usuario',
-		'usuario',
-		'contrasena',
-		'nombres',
-		'primer_apellido',
-		'segundo_apellido',
-		
-		'discriminador',
+		'id_proyecto',
+		'titulo',
+		'descripcion',
+		'tipo_proyecto',
+		'fecha_inicio',
+		'fecha_fin',
+		'administrador',
+		'admin_riesgo',
 		
 		array(
 			'class'=>'CButtonColumn',

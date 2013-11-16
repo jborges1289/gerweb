@@ -144,17 +144,7 @@ class UsuarioController extends Controller
 	}
         
         
-        public function actionGerweb()
-	{
-		$model=new Usuario('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Usuario']))
-			$model->attributes=$_GET['Usuario'];
-
-		$this->render('gerweb',array(
-			'model'=>$model,
-		));
-	}
+       
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
