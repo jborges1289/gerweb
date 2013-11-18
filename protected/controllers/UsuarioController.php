@@ -70,6 +70,7 @@ class UsuarioController extends Controller
 		if(isset($_POST['Usuario']))
 		{
 			$model->attributes=$_POST['Usuario'];
+                        $model->contrasena=  crypt($model->contrasena);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_usuario));
 		}
