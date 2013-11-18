@@ -72,7 +72,7 @@ class Usuario extends CActiveRecord
 			'nombres' => 'Nombres',
 			'primer_apellido' => 'Primer Apellido',
 			'segundo_apellido' => 'Segundo Apellido',
-			'discriminador' => 'Discriminador',
+			'discriminador' => 'Perfil',
 		);
 	}
 
