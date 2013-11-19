@@ -32,6 +32,12 @@
         <?php echo $form->passwordField($model, 'contrasena', array('size' => 45, 'maxlength' => 45)); ?>
         <?php echo $form->error($model, 'contrasena'); ?>
     </div>
+    
+    <div class="row">
+        <?php echo $form->labelEx($model, 'confirmarContrasena'); ?>
+        <?php echo $form->passwordField($model, 'confirmarContrasena', array('size' => 35, 'maxlength' => 35)); ?>
+        <?php echo $form->error($model, 'confirmarContrasena'); ?>
+    </div>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'nombres'); ?>
@@ -53,7 +59,6 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'discriminador'); ?>
-        <?php //echo $form->textField($model,'discriminador'); ?>
         <?php
         echo $form->dropDownList($model, 'discriminador',
                 array('1'=>'Administrador de Proyectos',
