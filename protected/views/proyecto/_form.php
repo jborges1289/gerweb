@@ -35,35 +35,38 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'tipo_proyecto'); ?>
-        <?php echo $form->textField($model, 'tipo_proyecto', array('size' => 60, 'maxlength' => 60)); ?>
+        <?php echo $form->dropDownList($model, 'tipo_proyecto', array('web' => 'Web',
+            'escritorio' => 'Escritorio',), array('empty' => 'Seleccione el tipo'));
+        ?>
         <?php echo $form->error($model, 'tipo_proyecto'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'fecha_inicio'); ?>
+        <?php echo $form->labelEx($model, 'fecha_inicio'); ?>
 
         <?php
-        $this->widget('zii.widgets.jui.CJuiDatePicker',array(
-            'model' =>$model,
-            'attribute' =>'fecha_inicio',
-            'language' =>'es',
-            'options' =>array(
-                'showAnim' =>'fold',
-                'dateFormat' =>'yy-mm-dd',
-                'defaultDate' =>$model->fecha_inicio,
-                'changeYear' =>true,
-                'changeMonth' =>true,
-                'yearRange' =>'1900',
+        $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+            'model' => $model,
+            'attribute' => 'fecha_inicio',
+            'language' => 'es',
+            'options' => array(
+                'showAnim' => 'fold',
+                'dateFormat' => 'yy-mm-dd',
+                'defaultDate' => $model->fecha_inicio,
+                'changeYear' => true,
+                'changeMonth' => true,
+                'yearRange' => '1900',
+                'value' => date('Y-m-d'),
             ),
         ));
         ?>
-        <?php echo $form->error($model,'fecha_inicio'); ?>
+        <?php echo $form->error($model, 'fecha_inicio'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'fecha_fin'); ?>
+        <?php echo $form->labelEx($model, 'fecha_fin'); ?>
         <?php
-        $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+        $this->widget('zii.widgets.jui.CJuiDatePicker', array(
             'model' => $model,
             'attribute' => 'fecha_fin',
             'language' => 'es',
@@ -74,10 +77,11 @@
                 'changeYear' => true,
                 'changeMonth' => true,
                 'yearRange' => '1900',
+                'value' => date('Y-m-d'),
             ),
         ));
         ?>
-        <?php echo $form->error($model,'fecha_fin'); ?>
+        <?php echo $form->error($model, 'fecha_fin'); ?>
     </div>
 
     <div class="row">
