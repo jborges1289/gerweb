@@ -18,6 +18,7 @@
  * @property Usuario $administrador0
  * @property Riesgo[] $riesgos
  */
+date_default_timezone_set('Mexico/General');
 class Proyecto extends CActiveRecord {
 
     /**

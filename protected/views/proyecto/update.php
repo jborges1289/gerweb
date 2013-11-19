@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Update Proyecto <?php echo $model->id_proyecto; ?></h1>
 
-<?php $this->renderPartial('_formRegister', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

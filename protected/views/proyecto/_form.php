@@ -97,7 +97,7 @@
         <?php echo $form->labelEx($model, 'admin_riesgo'); ?>
         <?php
         $admin_riesgo = CHtml::listData(Usuario::model()->findAll('discriminador=:perfil', array(':perfil' => 2)), 'id_usuario', 'nombres');
-        echo $form->dropDownList($model, 'administrador', $admin_riesgo, array('empty' => 'Seleccione Admin de Riesgos'));
+        echo $form->dropDownList($model, 'admin_riesgo', $admin_riesgo, array('empty' => 'Seleccione Admin de Riesgos'));
         ?>
         <?php echo $form->error($model, 'admin_riesgo'); ?>
     </div>
