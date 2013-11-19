@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
-	$model->id_usuario=>array('view','id'=>$model->id_usuario),
+	//$model->id_usuario=>array('view','id'=>$model->id_usuario),
 	'Update',
 );
 
@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Actualizar Usuario <?php echo $model->id_usuario; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_formRegister', array('model'=>$model)); ?>
