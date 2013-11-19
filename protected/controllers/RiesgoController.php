@@ -91,8 +91,7 @@ class RiesgoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Riesgo']))
-		{
+		if(isset($_POST['Riesgo'])){
 			$model->attributes=$_POST['Riesgo'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_riesgo));

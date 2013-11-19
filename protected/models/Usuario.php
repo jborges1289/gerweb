@@ -23,6 +23,10 @@ class Usuario extends CActiveRecord {
     /**
      * @return string the associated database table name
      */
+     public $contrasena;
+     public $confirmarContrasena;
+     public $verifyCode;
+    
     public function tableName() {
         return 'usuario';
     }
@@ -34,13 +38,14 @@ class Usuario extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, discriminador', 'required'),
+            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confimaContrasena , discriminador', 'required'),
             array('discriminador', 'numerical', 'integerOnly' => true),
             array('contrasena', 'length', 'max' => 45, 'min' => 8),
             array('usuario, contrasena, nombres, primer_apellido, segundo_apellido', 'length', 'max' => 45),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id_usuario, usuario, contrasena, nombres, primer_apellido, segundo_apellido, discriminador', 'safe', 'on' => 'search'),
+             array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements(),'on'=>'register'),
         );
     }
 
@@ -70,6 +75,7 @@ class Usuario extends CActiveRecord {
             'primer_apellido' => 'Primer Apellido',
             'segundo_apellido' => 'Segundo Apellido',
             'discriminador' => 'Perfil',
+            'verifyCode'=>'Verification Code',
         );
     }
 

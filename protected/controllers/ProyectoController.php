@@ -91,8 +91,7 @@ class ProyectoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Proyecto']))
-		{
+		if(isset($_POST['Proyecto'])){
 			$model->attributes=$_POST['Proyecto'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_proyecto));
