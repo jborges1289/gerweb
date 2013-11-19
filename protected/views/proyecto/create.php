@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Proyecto', 'url'=>array('index')),
-	array('label'=>'Manage Proyecto', 'url'=>array('admin')),
+	array('label'=>'Administrar Proyectos', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Proyecto</h1>
+<h1>Crea Proyecto</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
