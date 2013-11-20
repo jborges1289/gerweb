@@ -47,6 +47,7 @@ class Usuario extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confirmarContrasena , discriminador', 'required'),
+            array('usuario', 'unique'),
             array('discriminador', 'numerical', 'integerOnly' => true),
             array('contrasena', 'length', 'max' => 45, 'min' => 8),
             array('usuario, contrasena, nombres, primer_apellido, segundo_apellido', 'length', 'max' => 45),
