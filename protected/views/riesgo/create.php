@@ -3,13 +3,13 @@
 /* @var $model Riesgo */
 
 $this->breadcrumbs=array(
-	'Riesgos'=>array('index'),
-	'Create',
+	'Riesgos'=>'',
+	'Crear',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Riesgo', 'url'=>array('index')),
-	array('label'=>'Gestonar Riesgo', 'url'=>array('admin')),
+	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
 );
 ?>
 
