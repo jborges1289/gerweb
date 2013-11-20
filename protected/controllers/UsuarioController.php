@@ -26,6 +26,9 @@ class UsuarioController extends Controller
 	 */
 	public function accessRules()
 	{
+            
+           
+            
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
@@ -36,9 +39,13 @@ class UsuarioController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','gerweb'),
+				'actions'=>array('delete','gerweb'),
 				'users'=>array('admin'),
-			),
+			
+                            
+                            
+                            
+                            ), 
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),

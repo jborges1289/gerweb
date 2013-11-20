@@ -4,11 +4,11 @@
 
 $this->breadcrumbs=array(
 	'Proyectos'=>array('index'),
-	'Create',
+	'Crear Proyectos',
 );
 
 $this->menu=array(
-	array('label'=>'Administrar Proyectos', 'url'=>array('admin')),
+	array('label'=>'Gestión de Proyectos', 'url'=>array('admin')),
 );
 ?>
 
