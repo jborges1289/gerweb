@@ -39,7 +39,7 @@ class Proyecto extends CActiveRecord {
             array('titulo', 'length', 'max' => 95),
             array('tipo_proyecto', 'length', 'max' => 10),
             array('administrador, admin_riesgo', 'length', 'max' => 10),
-            array('fecha_inicio', 'compare', 'compareValue' => date('Y-m-d'), 'operator' => '=='), //Esto compara que la fecha de inicio de licitación sea igual a la fecha actual
+            array('fecha_inicio', 'compare', 'compareValue' => date('Y-m-d'), 'operator' => '<='), //Esto compara que la fecha de inicio de licitación sea igual a la fecha actual
             array('fecha_fin', 'compare', 'compareValue' => date('Y-m-d'), 'operator' => '>'), //Esto compara que la fecha de finalización de licitación sea mayor a la fecha actual
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
