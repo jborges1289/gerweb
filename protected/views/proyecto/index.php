@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Crear Proyectos', 'url'=>array('create')),
 	array('label'=>'Gestión de Proyectos', 'url'=>array('admin')),
+        array('label'=>'Crear Riesgos', 'url'=>array('riesgo/create')),
 );
 ?>
 

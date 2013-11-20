@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Riesgos'=>'',
-	'Crear',
+	'Crear Riesgo',
 );
 
 $this->menu=array(

@@ -10,6 +10,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar Proyectos', 'url'=>array('index')),
 	array('label'=>'Crear Proyectos', 'url'=>array('create')),
+        array('label'=>'Listar Usuarios', 'url'=>array('usuario/index')),
+        array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
