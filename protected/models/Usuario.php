@@ -54,7 +54,7 @@ class Usuario extends CActiveRecord {
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id_usuario, usuario, contrasena, nombres, primer_apellido, segundo_apellido, discriminador', 'safe', 'on' => 'search'),
-            array('verifyCode', 'captcha', 'allowEmpty' => !CCaptcha::checkRequirements(), 'on' => 'register'),
+           
         );
     }
 
