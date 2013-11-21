@@ -40,7 +40,23 @@
     
 <body>
     
+    <?php 
     
+    
+   
+    
+    
+  if (session_status() == PHP_SESSION_ACTIVE) {
+      
+      $perfil = $_GET['d'];
+      
+  }else{
+      
+      $perfil ='';
+      
+  }
+    
+   ?>
     
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -52,20 +68,71 @@
 				</a>
 				<a class="brand" href="#"><?php echo Yii::app()->name ?></a>
 				<div class="nav-collapse">
-					<?php $this->widget('zii.widgets.CMenu',array(
+					<?php 
+                                        
+                                           if($perfil === '1'){
+                                               
+                                                $this->widget('zii.widgets.CMenu',array(
 						'htmlOptions' => array( 'class' => 'nav' ),
 						'activeCssClass'	=> 'active',
 						'items'=>array(
-                                                        array('label'=>'Inicio', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Inicio', 'url'=>array('/riesgo/admin'), 'visible'=>!Yii::app()->user->isGuest),
+                                                         array('label'=>'Inicio', 'url'=>array('/proyecto/admin&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
 							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
 							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
 							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-                                                      
-
-  
+          
 						),
-					)); ?>
+					));
+                                                
+                                           }else if($perfil === '2'){
+                                               
+                                               $this->widget('zii.widgets.CMenu',array(
+						'htmlOptions' => array( 'class' => 'nav' ),
+						'activeCssClass'	=> 'active',
+						'items'=>array(
+                                                         array('label'=>'Inicio', 'url'=>array('/riesgo/admin&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
+							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+          
+						),
+					));
+                                               
+                                           }else if($perfil==='3'){
+                                               
+                                               $this->widget('zii.widgets.CMenu',array(
+						'htmlOptions' => array( 'class' => 'nav' ),
+						'activeCssClass'	=> 'active',
+						'items'=>array(
+                                                         array('label'=>'Inicio', 'url'=>array('/riesgo/index&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
+							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+          
+						),
+					));
+                                               
+                                           }else{
+                                            
+                                               $this->widget('zii.widgets.CMenu',array(
+						'htmlOptions' => array( 'class' => 'nav' ),
+						'activeCssClass'	=> 'active',
+						'items'=>array(
+                                                        array('label'=>'Inicio', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),                             
+							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+          
+						),
+					)); 
+                                               
+                                           }
+                                                ?>
+                                                
+                                            
+                                        
+                                        
+                                        
 					
 				</div><!--/.nav-collapse -->
 			</div>

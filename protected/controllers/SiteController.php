@@ -111,15 +111,15 @@ class SiteController extends Controller
                          
                          if($perfil == '1'){
                              
-                             $this->redirect('index.php?r=proyecto/admin');
+                             $this->redirect(array('proyecto/admin','d'=>$perfil));
                              
                          }else if($perfil == '2'){
                              
-                             $this->redirect('index.php?r=riesgo/admin');
+                             $this->redirect(array('riesgo/admin','d'=>$perfil));
                              
                          }else if($perfil== '3'){
                              
-                             $this->redirect('index.php?r=riesgo/index');
+                             $this->redirect(array('riesgo/index', 'd'=>$perfil));
                              
                          }else{
                              
