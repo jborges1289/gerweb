@@ -36,7 +36,12 @@
 <!-- Le fav and touch icons -->
 </head>
 
+    
+    
 <body>
+    
+    
+    
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
@@ -52,10 +57,13 @@
 						'activeCssClass'	=> 'active',
 						'items'=>array(
                                                         array('label'=>'Inicio', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-//							array('label'=>'Inicio', 'url'=>array('/site/index')),
-							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about')),
-							array('label'=>'Contacto', 'url'=>array('/site/contact')),
-							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+							array('label'=>'Inicio', 'url'=>array('/riesgo/admin'), 'visible'=>!Yii::app()->user->isGuest),
+							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                                                      
+
+  
 						),
 					)); ?>
 					
