@@ -2,7 +2,30 @@
 /* @var $this ProyectoController */
 /* @var $model Proyecto */
 /* @var $form CActiveForm */
+
+
+$oDBC = new CDbCriteria();
+$oDBC->select = 't.*,p.*'; 
+$oDBC->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
+$oDBC->condition = 'p.rol_id = 1 ';
+
+$admon_proy = Usuario::model()->findAll($oDBC);
+
+
+$query = new CDbCriteria();
+$query->select = 't.*,p.*'; 
+$query->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
+$query->condition = 'p.rol_id = 2 ';
+
+$admon_ries = Usuario::model()->findAll($query);
+
+
 ?>
+
+
+
+
+
 
 <div class="form">
 
@@ -87,16 +110,15 @@
     <div class="row">
         <?php echo $form->labelEx($model, 'administrador'); ?>
         <?php
-        $admin = CHtml::listData(Usuario::model()->findAll('discriminador=:perfil', array(':perfil' => 1)), 'id_usuario', 'nombres');
+        $admin = CHtml::listData($admon_proy, 'id_usuario', 'nombres');
         echo $form->dropDownList($model, 'administrador', $admin, array('empty' => 'Seleccione Administrador'));
         ?>
         <?php echo $form->error($model, 'administrador'); ?>
     </div>
-
     <div class="row">
         <?php echo $form->labelEx($model, 'admin_riesgo'); ?>
         <?php
-        $admin_riesgo = CHtml::listData(Usuario::model()->findAll('discriminador=:perfil', array(':perfil' => 2)), 'id_usuario', 'nombres');
+        $admin_riesgo = CHtml::listData($admon_ries, 'id_usuario', 'nombres');
         echo $form->dropDownList($model, 'admin_riesgo', $admin_riesgo, array('empty' => 'Seleccione Admin de Riesgos'));
         ?>
         <?php echo $form->error($model, 'admin_riesgo'); ?>
