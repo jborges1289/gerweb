@@ -30,12 +30,12 @@ class UsuarioRol extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, usuario_id, rol_id', 'required'),
-			array('id', 'numerical', 'integerOnly'=>true),
+			array('usuario_id, rol_id', 'required'),
+//			array('id', 'numerical', 'integerOnly'=>true),
 			array('usuario_id, rol_id', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, usuario_id, rol_id', 'safe', 'on'=>'search'),
+			array('usuario_id, rol_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,7 +58,7 @@ class UsuarioRol extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+//			'id' => 'ID',
 			'usuario_id' => 'Usuario',
 			'rol_id' => 'Perfil',
 		);
@@ -82,7 +82,7 @@ class UsuarioRol extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
+//		$criteria->compare('id',$this->id);
 		$criteria->compare('usuario_id',$this->usuario_id,true);
 		$criteria->compare('rol_id',$this->rol_id,true);
 

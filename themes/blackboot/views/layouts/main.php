@@ -46,10 +46,11 @@
    
     
     
-  if (Yii::app()->user->isGuest) {
+  if (!Yii::app()->user->isGuest) {
       
-      $id_usuario= $_GET['id'];
-      
+      $id_usuario = Yii::app()->user->id; // admin
+              
+   
       $userRol = UsuarioRol::model()->find(array(
             'condition' => 'usuario_id=:usuario_id',
             'params' => array(':usuario_id' => $id_usuario),

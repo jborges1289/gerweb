@@ -44,6 +44,9 @@ class UsuarioRolController extends Controller {
         $model->usuario_id = $id;
         $model->rol_id = $rol;
 
+        
+        
+        
         if ($model->save()) {
             
             $this->redirect(array('usuario/ver&id='. $model->usuario_id));
