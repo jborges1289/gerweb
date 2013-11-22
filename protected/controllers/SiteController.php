@@ -107,19 +107,27 @@ class SiteController extends Controller
             'params' => array(':usuario' => $model->username),
                 )
         );
-           $perfil = $users->discriminador;
+           $id_usuario = $users->id_usuario;
+           
+           
+           $userRol = UsuarioRol::model()->find(array(
+            'condition' => 'usuario_id=:usuario_id',
+            'params' => array(':usuario_id' => $id_usuario),
+                )
+        );
+           
                          
-                         if($perfil == '1'){
+                         if($userRol->rol_id == '1'){
                              
-                             $this->redirect(array('proyecto/admin','d'=>$perfil));
+                             $this->redirect(array('proyecto/admin','id'=>$id_usuario));
                              
-                         }else if($perfil == '2'){
+                         }else if($userRol->rol_id == '2'){
                              
-                             $this->redirect(array('riesgo/admin','d'=>$perfil));
+                             $this->redirect(array('riesgo/admin','id'=>$id_usuario));
                              
-                         }else if($perfil== '3'){
+                         }else if($userRol->rol_id== '3'){
                              
-                             $this->redirect(array('riesgo/index', 'd'=>$perfil));
+                             $this->redirect(array('riesgo/index', 'id'=>$id_usuario));
                              
                          }else{
                              

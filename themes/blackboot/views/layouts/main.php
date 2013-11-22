@@ -46,13 +46,21 @@
    
     
     
-  if (session_status() == PHP_SESSION_ACTIVE) {
+  if (!Yii::app()->user->isGuest) {
       
-      $perfil = $_GET['d'];
+      $id_usuario= $_GET['id'];
+      
+      $userRol = UsuarioRol::model()->find(array(
+            'condition' => 'usuario_id=:usuario_id',
+            'params' => array(':usuario_id' => $id_usuario),
+                )
+        );
+          
+          
       
   }else{
       
-      $perfil ='';
+      $id_usuario ='';
       
   }
     
@@ -70,63 +78,65 @@
 				<div class="nav-collapse">
 					<?php 
                                         
-                                           if($perfil === '1'){
-                                               
-                                                $this->widget('zii.widgets.CMenu',array(
-						'htmlOptions' => array( 'class' => 'nav' ),
-						'activeCssClass'	=> 'active',
-						'items'=>array(
-                                                         array('label'=>'Inicio', 'url'=>array('/proyecto/admin&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
-							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-          
-						),
-					));
                                                 
-                                           }else if($perfil === '2'){
-                                               
-                                               $this->widget('zii.widgets.CMenu',array(
-						'htmlOptions' => array( 'class' => 'nav' ),
-						'activeCssClass'	=> 'active',
-						'items'=>array(
-                                                         array('label'=>'Inicio', 'url'=>array('/riesgo/admin&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
-							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-          
-						),
-					));
-                                               
-                                           }else if($perfil==='3'){
-                                               
-                                               $this->widget('zii.widgets.CMenu',array(
-						'htmlOptions' => array( 'class' => 'nav' ),
-						'activeCssClass'	=> 'active',
-						'items'=>array(
-                                                         array('label'=>'Inicio', 'url'=>array('/riesgo/index&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
-							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-          
-						),
-					));
-                                               
-                                           }else{
-                                            
-                                               $this->widget('zii.widgets.CMenu',array(
-						'htmlOptions' => array( 'class' => 'nav' ),
-						'activeCssClass'	=> 'active',
-						'items'=>array(
-                                                        array('label'=>'Inicio', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),                             
-							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-          
-						),
-					)); 
-                                               
-                                           }
+        
+//                           if($userRol->rol_id == '1'){
+//                                               
+//                                                $this->widget('zii.widgets.CMenu',array(
+//						'htmlOptions' => array( 'class' => 'nav' ),
+//						'activeCssClass'	=> 'active',
+//						'items'=>array(
+//                                                         array('label'=>'Inicio', 'url'=>array('/proyecto/admin&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
+//							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+//          
+//						),
+//					));
+//                                                
+//                                           }else if($userRol->rol_id === '2'){
+//                                               
+//                                               $this->widget('zii.widgets.CMenu',array(
+//						'htmlOptions' => array( 'class' => 'nav' ),
+//						'activeCssClass'	=> 'active',
+//						'items'=>array(
+//                                                         array('label'=>'Inicio', 'url'=>array('/riesgo/admin&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
+//							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+//          
+//						),
+//					));
+//                                               
+//                                           }else if($userRol->rol_id==='3'){
+//                                               
+//                                               $this->widget('zii.widgets.CMenu',array(
+//						'htmlOptions' => array( 'class' => 'nav' ),
+//						'activeCssClass'	=> 'active',
+//						'items'=>array(
+//                                                         array('label'=>'Inicio', 'url'=>array('/riesgo/index&d='.$perfil.''), 'visible'=>!Yii::app()->user->isGuest),                             
+//							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+//          
+//						),
+//					));
+//                                               
+//                                           }else{
+//                                            
+//                                               $this->widget('zii.widgets.CMenu',array(
+//						'htmlOptions' => array( 'class' => 'nav' ),
+//						'activeCssClass'	=> 'active',
+//						'items'=>array(
+//                                                        array('label'=>'Inicio', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),                             
+//							array('label'=>'Acerca De', 'url'=>array('/site/page', 'view'=>'about'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Contacto', 'url'=>array('/site/contact'), 'visible'=>Yii::app()->user->isGuest),
+//							array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+//          
+//						),
+//					)); 
+//                                               
+//                                           }
                                                 ?>
                                                 
                                             
