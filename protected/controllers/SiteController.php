@@ -119,19 +119,19 @@ class SiteController extends Controller
                          
                          if($userRol->rol_id == '1'){
                              
-                             $this->redirect(array('proyecto/admin','id'=>$id_usuario));
+                             $this->redirect('index.php?r=proyecto/admin');
                              
                          }else if($userRol->rol_id == '2'){
                              
-                             $this->redirect(array('riesgo/admin','id'=>$id_usuario));
+                             $this->redirect('index.php?r=riesgo/admin');
                              
                          }else if($userRol->rol_id== '3'){
                              
-                             $this->redirect(array('riesgo/index', 'id'=>$id_usuario));
+                             $this->redirect('index.php?r=riesgo/index');
                              
                          }else{
                              
-                             $this->redirect('index.php?r=index/index');
+                             $this->redirect('index.php?r=index/login');
                              
                          }
                             

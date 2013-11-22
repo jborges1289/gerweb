@@ -21,6 +21,28 @@ class UserIdentity extends CUserIdentity
             'params' => array(':usuario' => $this->username),
                 )
         );
+        
+        $roles = Roles::model()->findAll(array(
+            
+            'select'=> 'nombre_rol',
+            
+        ));
+        
+        
+       $perfiles = array();
+        
+        foreach ($roles as $rol) {
+        
+     
+          $roles_= $rol->nombre_rol;
+          $perfiles[] = $roles_;
+
+        }
+        
+        $this->setState('roles', $perfiles);
+        
+       
+        
         if ($users==null)
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         elseif (crypt($this->password,$users->contrasena)!= $users->contrasena)
