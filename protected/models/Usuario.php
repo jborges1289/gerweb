@@ -25,6 +25,7 @@ class Usuario extends CActiveRecord {
      */
     public $contrasena;
     public $confirmarContrasena;
+    public $perfil;
     public $verifyCode;
 
     public function tableName() {
@@ -46,9 +47,9 @@ class Usuario extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confirmarContrasena', 'required'),
+            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confirmarContrasena,perfil', 'required'),
             array('usuario', 'unique'),
-//            array('discriminador', 'numerical', 'integerOnly' => true),
+            array('perfil', 'numerical', 'integerOnly' => true),
             array('contrasena', 'length', 'max' => 45, 'min' => 8),
             array('usuario, contrasena, nombres, primer_apellido, segundo_apellido', 'length', 'max' => 45),
             // The following rule is used by search().
@@ -83,7 +84,7 @@ class Usuario extends CActiveRecord {
             'nombres' => 'Nombres',
             'primer_apellido' => 'Primer Apellido',
             'segundo_apellido' => 'Segundo Apellido',
-//            'discriminador' => 'Perfil',
+            'perfil' => 'Perfil',
             'verifyCode' => 'Verification Code',
         );
     }

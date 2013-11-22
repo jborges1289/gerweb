@@ -59,16 +59,15 @@
         
         <div class="row">
             
-            <?php $model_ = Roles::model(); ?>
             
-		<?php echo $form->labelEx($model_,'nombre_rol'); ?>
+		<?php echo $form->labelEx($model,'perfil'); ?>
                 <?php $admin = CHtml::listData(Roles::model()->findAll(), 'id', 'nombre_rol');
-		 echo $form->dropDownList($model_, 'nombre_rol',$admin ,array('empty' => 'Seleccione Perfil')); ?>
-		<?php echo $form->error($model_,'nombre_rol'); ?>
+		 echo $form->dropDownList($model, 'perfil',$admin ,array('empty' => 'Seleccione Perfil')); ?>
+		<?php echo $form->error($model,'perfil'); ?>
 	</div>
         
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Editar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

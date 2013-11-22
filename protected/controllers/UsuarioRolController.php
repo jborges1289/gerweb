@@ -38,10 +38,6 @@ class UsuarioRolController extends Controller {
 
         $rol = $_GET['rol'];
         $id = $_GET['id'];
-
-        
-        var_dump($rol);
-        die();
         
         $model = new UsuarioRol();
 
@@ -50,12 +46,14 @@ class UsuarioRolController extends Controller {
 
         if ($model->save()) {
             
-            $this->redirect(array('usuario/view', 'id' => $model->usuario_id));
+            $this->redirect(array('usuario/ver&id='. $model->usuario_id));
             
         } else {
 
+            $modelError = Usuario::model()->findAllByAttributes($model->usuario_id);
+            $modelError->perfil=$rol;
             $this->render('/usuario/create', array(
-                'model' => $model,
+                'model' => $modelError,
             ));
         }
     }
