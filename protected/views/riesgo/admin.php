@@ -60,6 +60,8 @@ or <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especifica
 		'plan_contigencia',
 		'redactor',
 		'responsable',
+                'id_proyecto',
+		'linea_corte',
 		*/
 		array(
 			'class'=>'CButtonColumn',

@@ -57,6 +57,14 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('responsable')); ?>:</b>
 	<?php echo CHtml::encode($data->responsable); ?>
 	<br />
+         
+        <b><?php echo CHtml::encode($data->getAttributeLabel('id_proyecto')); ?>:</b>
+	<?php echo CHtml::encode($data->id_proyecto); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('linea_corte')); ?>:</b>
+	<?php echo CHtml::encode($data->linea_corte); ?>
+	<br />
 
 	*/ ?>
 

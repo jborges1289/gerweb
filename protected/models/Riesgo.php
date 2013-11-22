@@ -17,6 +17,8 @@
  * @property string $plan_contigencia
  * @property string $redactor
  * @property string $responsable
+ *  * @property string $id_proyecto
+ * @property integer $linea_corte
  *
  * The followings are the available model relations:
  * @property Proyecto[] $proyectos
@@ -41,14 +43,15 @@ class Riesgo extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('nombre, categoria, tipo, probabilidad, impacto, fecha, descripcion, factores_influyen, reduccion, plan_contigencia, redactor, responsable', 'required'),
+            array('nombre, categoria, tipo, probabilidad, impacto, fecha, descripcion, factores_influyen, reduccion, plan_contigencia, redactor, responsable, id_proyecto', 'required'),
+            array('linea_corte', 'numerical', 'integerOnly'=>true),
             array('nombre', 'length', 'max' => 45),
             array('fecha', 'compare', 'compareValue' => date('Y-m-d'), 'operator' => '<='),
             array('categoria, tipo, impacto', 'length', 'max' => 15),
-            array('probabilidad, redactor, responsable', 'length', 'max' => 10),
+            array('probabilidad, redactor, responsable,  id_proyecto', 'length', 'max' => 10),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id_riesgo, nombre, categoria, tipo, probabilidad, impacto, fecha, descripcion, factores_influyen, reduccion, plan_contigencia, redactor, responsable', 'safe', 'on' => 'search'),
+            array('id_riesgo, nombre, categoria, tipo, probabilidad, impacto, fecha, descripcion, factores_influyen, reduccion, plan_contigencia, redactor, responsable, id_proyecto, linea_corte', 'safe', 'on' => 'search'),
         );
     }
 
@@ -59,7 +62,7 @@ class Riesgo extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'proyectos' => array(self::MANY_MANY, 'Proyecto', 'proyecto_riesgo(id_riesgo, id_proyecto)'),
+            'idProyecto' => array(self::BELONGS_TO, 'Proyecto', 'id_proyecto'),
             'redactor0' => array(self::BELONGS_TO, 'Usuario', 'redactor'),
             'responsable0' => array(self::BELONGS_TO, 'Usuario', 'responsable'),
         );
@@ -83,6 +86,8 @@ class Riesgo extends CActiveRecord {
             'plan_contigencia' => 'Plan Contigencia',
             'redactor' => 'Redactor',
             'responsable' => 'Responsable',
+            'id_proyecto' => 'Proyecto',
+            'linea_corte' => '',
         );
     }
 
@@ -116,6 +121,8 @@ class Riesgo extends CActiveRecord {
         $criteria->compare('plan_contigencia', $this->plan_contigencia, true);
         $criteria->compare('redactor', $this->redactor, true);
         $criteria->compare('responsable', $this->responsable, true);
+	$criteria->compare('id_proyecto',$this->id_proyecto,true);
+	$criteria->compare('linea_corte',$this->linea_corte);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

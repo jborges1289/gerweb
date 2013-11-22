@@ -56,7 +56,7 @@ class Proyecto extends CActiveRecord {
         return array(
             'adminRiesgo' => array(self::BELONGS_TO, 'Usuario', 'admin_riesgo'),
             'administrador0' => array(self::BELONGS_TO, 'Usuario', 'administrador'),
-            'riesgos' => array(self::MANY_MANY, 'Riesgo', 'proyecto_riesgo(id_proyecto, id_riesgo)'),
+            'riesgos' => array(self::HAS_MANY, 'Riesgo', 'id_proyecto'),
         );
     }
 

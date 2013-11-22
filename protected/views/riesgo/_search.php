@@ -76,6 +76,15 @@
 		<?php echo $form->textField($model,'responsable',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
+        <div class="row">
+		<?php echo $form->label($model,'id_proyecto'); ?>
+		<?php echo $form->textField($model,'id_proyecto',array('size'=>10,'maxlength'=>10)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'linea_corte'); ?>
+		<?php echo $form->textField($model,'linea_corte'); ?>
+	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

@@ -34,5 +34,7 @@ $this->menu=array(
 		'plan_contigencia',
 		'redactor',
 		'responsable',
+                'id_proyecto',
+		'linea_corte',
 	),
 )); ?>
