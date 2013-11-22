@@ -4,31 +4,15 @@
 
 $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
-	'Crear',
+	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'Administrar Usuarios', 'url'=>array('admin')),
+	array('label'=>'List Usuario', 'url'=>array('index')),
+	array('label'=>'Manage Usuario', 'url'=>array('admin')),
 );
-
- $user = Yii::app()->db->createCommand()
-    ->select('usuario')
-    ->from('usuario')
-    ->where('discriminador=:discriminador', array(':discriminador'=>1))
-    ->queryRow();
-
-echo '<pre>';
-
-foreach ($user as $value) {
-    echo $value;
-}
-
-echo '</pre>';
-
-            
-
 ?>
 
-<h1>Crear Usuario</h1>
+<h1>Create Usuario</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

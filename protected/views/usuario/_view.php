@@ -29,11 +29,5 @@
 	<?php echo CHtml::encode($data->segundo_apellido); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('discriminador')); ?>:</b>
-	<?php echo CHtml::encode($data->discriminador); ?>
-	<br />
-
 
 </div>
-
-<?php echo '<br>';?>

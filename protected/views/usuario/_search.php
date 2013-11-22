@@ -41,11 +41,6 @@
 		<?php echo $form->textField($model,'segundo_apellido',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'discriminador'); ?>
-		<?php echo $form->textField($model,'discriminador'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
