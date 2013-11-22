@@ -63,6 +63,7 @@ class UsuarioController extends Controller
 	public function actionCreate()
 	{
 		$model=new Usuario;
+                $model_=new Roles();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -70,8 +71,10 @@ class UsuarioController extends Controller
 		if(isset($_POST['Usuario']))
 		{
 			$model->attributes=$_POST['Usuario'];
+                        $model_->attributes= $_POST['Usuario'];
+                        
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_usuario));
+				$this->redirect(array('usuarioRol/create','id'=>$model->id_usuario,'rol'=>$model_->id));
 		}
 
 		$this->render('create',array(
@@ -94,6 +97,8 @@ class UsuarioController extends Controller
 		if(isset($_POST['Usuario']))
 		{
 			$model->attributes=$_POST['Usuario'];
+                       
+                        
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_usuario));
 		}

@@ -46,7 +46,7 @@
    
     
     
-  if (!Yii::app()->user->isGuest) {
+  if (Yii::app()->user->isGuest) {
       
       $id_usuario= $_GET['id'];
       

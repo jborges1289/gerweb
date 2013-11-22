@@ -46,14 +46,14 @@ class Usuario extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confirmarContrasena , discriminador', 'required'),
+            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confirmarContrasena', 'required'),
             array('usuario', 'unique'),
-            array('discriminador', 'numerical', 'integerOnly' => true),
+//            array('discriminador', 'numerical', 'integerOnly' => true),
             array('contrasena', 'length', 'max' => 45, 'min' => 8),
             array('usuario, contrasena, nombres, primer_apellido, segundo_apellido', 'length', 'max' => 45),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id_usuario, usuario, contrasena, nombres, primer_apellido, segundo_apellido, discriminador', 'safe', 'on' => 'search'),
+            array('id_usuario, usuario, contrasena, nombres, primer_apellido, segundo_apellido', 'safe', 'on' => 'search'),
            
         );
     }
@@ -83,7 +83,7 @@ class Usuario extends CActiveRecord {
             'nombres' => 'Nombres',
             'primer_apellido' => 'Primer Apellido',
             'segundo_apellido' => 'Segundo Apellido',
-            'discriminador' => 'Perfil',
+//            'discriminador' => 'Perfil',
             'verifyCode' => 'Verification Code',
         );
     }
@@ -111,7 +111,7 @@ class Usuario extends CActiveRecord {
         $criteria->compare('nombres', $this->nombres, true);
         $criteria->compare('primer_apellido', $this->primer_apellido, true);
         $criteria->compare('segundo_apellido', $this->segundo_apellido, true);
-        $criteria->compare('discriminador', $this->discriminador, true);
+//        $criteria->compare('discriminador', $this->discriminador, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

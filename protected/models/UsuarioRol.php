@@ -60,7 +60,7 @@ class UsuarioRol extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'usuario_id' => 'Usuario',
-			'rol_id' => 'Rol',
+			'rol_id' => 'Perfil',
 		);
 	}
 
