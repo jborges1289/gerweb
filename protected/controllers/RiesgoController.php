@@ -36,8 +36,8 @@ class RiesgoController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin','jborges1289'),
+				'actions'=>array('admin','delete','lineaCorte','editarLinea'),
+				'users'=>array('admin','jborges1289','Jose'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -142,6 +142,52 @@ class RiesgoController extends Controller
 		));
 	}
 
+        /*
+         * Retorna todos los riesgos de un proyecto para designar la linea de corte
+         */
+        
+        public function actionLineaCorte(){
+            $idProyecto=$_GET['proyecto'];
+            $idRiesgo=0;
+            $existeLineaCorte=false;
+            $riesgo=Riesgo::model()->find('id_proyecto=:idProyecto && linea_corte=:corte', array(':idProyecto'=>$idProyecto,':corte'=>1));
+            
+            if(!empty($riesgo)){
+                $existeLineaCorte=true;
+                $idRiesgo=$riesgo->id_riesgo;
+            }
+            $riesgoProyecto= Riesgo::model()->findAll('id_proyecto=:idProyecto ORDER BY probabilidad DESC',array('idProyecto'=>$idProyecto));
+            $proyecto= Proyecto::model()->findByPk($idProyecto);
+            $this->render('lineaCorte',array(
+			'riesgos'=>$riesgoProyecto,
+                        'existeLineaCorte'=>$existeLineaCorte,
+                        'proyecto'=>$proyecto,
+                        'idRiesgo'=>$idRiesgo,
+		));
+            
+        }
+        
+        public function actionEditarLinea(){
+            $idRiesgoCorte=  Yii::app()->request->getPost('idRiesgo');
+            $idRiesgoNCorte=  Yii::app()->request->getPost('C_Riesgos');
+            if($idRiesgoCorte!=0){
+                $riesgoCorte= $this->loadModel($idRiesgoCorte);
+                $riesgoCorte->setAttribute('linea_corte', false);
+                $riesgoCorte->update();
+                $riesgoNCorte=  $riesgoNCorte= $this->loadModel($idRiesgoNCorte);
+                $riesgoNCorte->setAttribute('linea_corte', true);
+                $riesgoNCorte->update();
+                $this->redirect(array('riesgo/lineaCorte','proyecto'=>$riesgoCorte->id_proyecto));
+            }else{
+                $riesgoNCorte= $this->loadModel($idRiesgoNCorte);
+                $riesgoNCorte->setAttribute('linea_corte', true);
+                $riesgoNCorte->update();
+                $this->redirect(array('riesgo/lineaCorte','proyecto'=>$riesgoCorte->id_proyecto));
+            }
+            
+            
+            
+        }
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
