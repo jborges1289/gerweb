@@ -26,6 +26,24 @@ class RiesgoController extends Controller
 	 */
 	public function accessRules()
 	{
+            
+            $oDBC = new CDbCriteria();
+$oDBC->select = 't.*,p.*'; 
+$oDBC->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
+$oDBC->condition = 'p.rol_id = 2 ';
+
+$admon_proy = Usuario::model()->findAll($oDBC);
+
+$usuario=array();
+
+foreach ($admon_proy as $value) {
+    
+  $rol__= $value->usuario;
+  $usuario[] = $rol__;
+ 
+}         
+
+            
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
@@ -37,7 +55,7 @@ class RiesgoController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete','lineaCorte','editarLinea'),
-				'users'=>array('admin','jborges1289','Jose'),
+				'users'=>$usuario,
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

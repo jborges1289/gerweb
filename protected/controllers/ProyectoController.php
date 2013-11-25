@@ -26,6 +26,27 @@ class ProyectoController extends Controller
 	 */
 	public function accessRules()
 	{
+            
+                                    
+$oDBC = new CDbCriteria();
+$oDBC->select = 't.*,p.*'; 
+$oDBC->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
+$oDBC->condition = 'p.rol_id = 1 ';
+
+$admon_proy = Usuario::model()->findAll($oDBC);
+
+$usuario=array();
+
+foreach ($admon_proy as $value) {
+    
+  $rol__= $value->usuario;
+  $usuario[] = $rol__;
+ 
+}         
+
+
+
+            
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
@@ -37,8 +58,8 @@ class ProyectoController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete', 'gerweb'),
-//				'users'=>array('admin'),
-                                'roles'=> array('Administrador de Proyectos'),
+				'users'=> $usuario,
+//                                'roles'=> array('Administrador de Proyectos'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

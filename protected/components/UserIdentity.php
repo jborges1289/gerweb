@@ -41,7 +41,8 @@ class UserIdentity extends CUserIdentity
         
         $this->setState('roles', $perfiles);
         
-       
+
+
         
         if ($users==null)
             $this->errorCode = self::ERROR_USERNAME_INVALID;
