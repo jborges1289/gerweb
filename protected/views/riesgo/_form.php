@@ -2,6 +2,13 @@
 /* @var $this RiesgoController */
 /* @var $model Riesgo */
 /* @var $form CActiveForm */
+
+$oDBC = new CDbCriteria();
+$oDBC->select = 't.*,p.*'; 
+$oDBC->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
+$oDBC->condition = 'p.rol_id = 2 && p.rol_id = 3';
+
+$equipoRiesgo = Usuario::model()->findAll($oDBC);
 ?>
 
 <div class="form">
@@ -115,7 +122,7 @@
     <div class="row">
         <?php echo $form->labelEx($model, 'redactor'); ?>
         <?php
-        $redactor = CHtml::listData(Usuario::model()->findAll('discriminador=:perfil or discriminador=:perfilS', array(':perfil' => 2, ':perfilS' => 3)), 'id_usuario', 'nombres');
+        $redactor = CHtml::listData($equipoRiesgo, 'id_usuario', 'nombres');
         echo $form->dropDownList($model, 'redactor', $redactor, array('empty' => 'Seleccione Redactor'));
         ?>
         <?php echo $form->error($model, 'redactor'); ?>
@@ -124,7 +131,7 @@
     <div class="row">
         <?php echo $form->labelEx($model, 'responsable'); ?>
         <?php
-        $responsable = CHtml::listData(Usuario::model()->findAll('discriminador=:perfil or discriminador=:perfilS', array(':perfil' => 2, ':perfilS' => 3)), 'id_usuario', 'nombres');
+        $responsable = CHtml::listData($equipoRiesgo, 'id_usuario', 'nombres');
         echo $form->dropDownList($model, 'responsable', $responsable, array('empty' => 'Seleccione Responsable'));
         ?>
         <?php echo $form->error($model, 'responsable'); ?>
