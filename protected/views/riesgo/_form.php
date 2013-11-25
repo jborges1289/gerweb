@@ -6,7 +6,7 @@
 $oDBC = new CDbCriteria();
 $oDBC->select = 't.*,p.*'; 
 $oDBC->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
-$oDBC->condition = 'p.rol_id = 2 && p.rol_id = 3';
+$oDBC->condition = 'p.rol_id = 2 or p.rol_id = 3';
 
 $equipoRiesgo = Usuario::model()->findAll($oDBC);
 ?>
