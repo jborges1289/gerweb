@@ -200,7 +200,7 @@ foreach ($admon_proy as $value) {
                 $riesgoNCorte= $this->loadModel($idRiesgoNCorte);
                 $riesgoNCorte->setAttribute('linea_corte', true);
                 $riesgoNCorte->update();
-                $this->redirect(array('riesgo/lineaCorte','proyecto'=>$riesgoCorte->id_proyecto));
+                $this->redirect(array('riesgo/lineaCorte','proyecto'=>$riesgoNCorte->id_proyecto));
             }
             
             
