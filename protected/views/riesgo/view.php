@@ -82,6 +82,6 @@ $usuario = Yii::app()->user->id;
 		'redactor',
 		'responsable',
                 'id_proyecto',
-		'linea_corte',
+		//'linea_corte',
 	),
 )); ?>
