@@ -7,12 +7,43 @@ $this->breadcrumbs=array(
 	'Gestión de Proyectos',
 );
 
-$this->menu=array(
+
+$usuario = Yii::app()->user->id;
+
+
+     $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+    
+        
+   $usuario_rol_id = $users->id_usuario;
+   
+    $userRol = UsuarioRol::model()->find(array(
+        'condition' => 'usuario_id=:usuario_id',
+        'params' => array(':usuario_id' => $usuario_rol_id),
+            )
+    );
+
+
+
+   if($userRol->rol_id== '1'){
+      
+       $this->menu=array(
+    
+        array('label'=>'Crear Proyectos', 'url'=>array('create')),
 	array('label'=>'Listar Proyectos', 'url'=>array('index')),
-	array('label'=>'Crear Proyectos', 'url'=>array('create')),
+	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
         array('label'=>'Listar Usuarios', 'url'=>array('usuario/index')),
-        array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+        
 );
+       
+   }
+    
+    
+
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

@@ -85,7 +85,7 @@ class RiesgoController extends Controller {
                 'users' => $usuariosEquipRiesgo,
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('create', 'update', 'admin', 'delete', 'lineaCorte', 'editarLinea'),
+                'actions' => array('create', 'update', 'admin', 'delete', 'lineaCorte', 'editarLinea','index','view'),
                 'users' => $usuariosAdminRiesgo,
             ),
             array('deny', // deny all users

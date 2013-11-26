@@ -3,13 +3,64 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Riesgos',
+	'Riesgos'=>'',
+        'Listar Riesgos'
 );
 
-$this->menu=array(
-	array('label'=>'Crear Riesgo', 'url'=>array('create')),
-	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
+
+
+$usuario = Yii::app()->user->id;
+
+
+     $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+    
+        
+   $usuario_rol_id = $users->id_usuario;
+   
+    $userRol = UsuarioRol::model()->find(array(
+        'condition' => 'usuario_id=:usuario_id',
+        'params' => array(':usuario_id' => $usuario_rol_id),
+            )
+    );
+
+
+
+if($userRol->rol_id == '1'){
+    
+   $this->menu=array(
+	
+       
+	array('label'=>'Crear Proyectos', 'url'=>array('proyecto/create')),
+        array('label'=>'Listar Proyectos', 'url'=>array('proyecto/index')),
+        array('label'=>'Listar Usuarios', 'url'=>array('usuario/index')),
 );
+         
+}else if($userRol->rol_id=='2'){
+    
+    $this->menu=array(
+	array('label'=>'Crear Riesgo', 'url'=>array('create')),     
+	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
+        array('label'=>'Crear Usuario', 'url'=>array('usuario/create')),     
+       
+);
+    
+}else if($userRol->rol_id=='3'){
+    
+    $this->menu=array(
+	array('label'=>'Crear Riesgo', 'url'=>array('create')),
+//	array('label'=>'Listar Riesgos', 'url'=>array('index')),
+        );
+    
+}
+
+
+
+
 ?>
 
 <h1>Riesgos</h1>
