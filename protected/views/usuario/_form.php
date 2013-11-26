@@ -2,6 +2,8 @@
 /* @var $this UsuarioController */
 /* @var $model Usuario */
 /* @var $form CActiveForm */
+$usuario = Usuario::model()->find('usuario=:user', array('user' => Yii::app()->user->id));
+$rol = UsuarioRol::model()->find('usuario_id=:usuario', array(':usuario' => $usuario->id_usuario))->rol_id;
 ?>
 
 <div class="form">
@@ -19,7 +21,7 @@
 
     <p class="note">Campos con <span class="required">*</span> son necesarios.</p>
 
-    <?php  echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary($model); ?>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'usuario'); ?>
@@ -32,7 +34,7 @@
         <?php echo $form->passwordField($model, 'contrasena', array('size' => 45, 'maxlength' => 45)); ?>
         <?php echo $form->error($model, 'contrasena'); ?>
     </div>
-    
+
     <div class="row">
         <?php echo $form->labelEx($model, 'confirmarContrasena'); ?>
         <?php echo $form->passwordField($model, 'confirmarContrasena', array('size' => 35, 'maxlength' => 35)); ?>
@@ -56,20 +58,28 @@
         <?php echo $form->textField($model, 'segundo_apellido', array('size' => 45, 'maxlength' => 45)); ?>
         <?php echo $form->error($model, 'segundo_apellido'); ?>
     </div>
-        
-        <div class="row">
-            
-            
-		<?php echo $form->labelEx($model,'perfil'); ?>
-                <?php $admin = CHtml::listData(Roles::model()->findAll(), 'id', 'nombre_rol');
-		 echo $form->dropDownList($model, 'perfil',$admin ,array('empty' => 'Seleccione Perfil')); ?>
-		<?php echo $form->error($model,'perfil'); ?>
-	</div>
-        
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Editar'); ?>
-	</div>
 
-<?php $this->endWidget(); ?>
+    <div class="row">
+
+        <?php echo $form->labelEx($model, 'perfil'); ?>
+        <?php
+        if ($rol == 1) {
+            $rolAdmin = Roles::model()->findByPk(2);
+            echo $form->hiddenField($model, 'perfil', array('value' => $rolAdmin->id));
+        } else {
+            if ($rol == 2) {
+                $rolAdmin = Roles::model()->findByPk(3);
+                echo $form->hiddenField($model, 'perfil', array('value' => $rolAdmin->id));
+            }
+        }
+        ?>
+        <?php echo $form->error($model, 'perfil'); ?>
+    </div>
+
+    <div class="row buttons">
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Editar'); ?>
+    </div>
+
+    <?php $this->endWidget(); ?>
 
 </div><!-- form -->

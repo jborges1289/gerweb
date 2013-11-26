@@ -47,7 +47,7 @@ class Usuario extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confirmarContrasena,perfil', 'required'),
+            array('usuario, contrasena, nombres, primer_apellido, segundo_apellido, confirmarContrasena', 'required'),
             array('usuario', 'unique'),
             array('perfil', 'numerical', 'integerOnly' => true),
             array('contrasena', 'length', 'max' => 45, 'min' => 8),
@@ -84,7 +84,7 @@ class Usuario extends CActiveRecord {
             'nombres' => 'Nombres',
             'primer_apellido' => 'Primer Apellido',
             'segundo_apellido' => 'Segundo Apellido',
-            'perfil' => 'Perfil',
+            'perfil' => '',
             'verifyCode' => 'Verification Code',
         );
     }
