@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Proyectos', 'url'=>array('index')),
-        array('label'=>'Gestión de Proyectos', 'url'=>array('admin')),
         array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
         array('label'=>'Listar Usuarios', 'url'=>array('usuario/index')),
 );

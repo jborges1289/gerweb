@@ -33,7 +33,7 @@ $usuario = Yii::app()->user->id;
       
        $this->menu=array(
     
-        array('label'=>'Crear Proyectos', 'url'=>array('create')),
+        array('label'=>'Crear Proyecto', 'url'=>array('create')),
 	array('label'=>'Listar Proyectos', 'url'=>array('index')),
 	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
         array('label'=>'Listar Usuarios', 'url'=>array('usuario/index')),

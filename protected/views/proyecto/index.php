@@ -29,8 +29,9 @@ $usuario = Yii::app()->user->id;
     
      if($userRol->rol_id== '1'){
         $this->menu=array(
-	array('label'=>'Crear Proyectos', 'url'=>array('create')),
-	array('label'=>'Gestión de Proyectos', 'url'=>array('admin')), 
+	array('label'=>'Crear Proyecto', 'url'=>array('create')),
+	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')), 
+        array('label'=>'Listar Usuarios', 'url'=>array('usuario/index')),   
          
          );
         
