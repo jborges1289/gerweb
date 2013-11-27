@@ -144,7 +144,54 @@ class UsuarioController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('Usuario');
+        
+        
+$usuario = Yii::app()->user->id;
+
+
+     $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+    
+        
+   $usuario_rol_id = $users->id_usuario;
+   
+    $userRol = UsuarioRol::model()->find(array(
+        'condition' => 'usuario_id=:usuario_id',
+        'params' => array(':usuario_id' => $usuario_rol_id),
+            )
+    );
+
+    
+    
+    if($userRol->rol_id =='1'){
+        
+        $model = new Usuario();
+      
+        $dataProvider = new CActiveDataProvider($model, array(
+        
+        'criteria'=>array(
+        'select' => 't.*, p.*',
+        'join' => 'INNER JOIN proyecto p ON t.id_usuario = p.administrador',    
+ 
+        )
+            
+           ));
+
+        
+    }else if($userRol->rol_id == '2'){
+        
+        
+    }else if($userRol->rol_id == '3'){
+        
+        
+    }
+        
+      
+
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));
@@ -159,7 +206,8 @@ class UsuarioController extends Controller {
         if (isset($_GET['Usuario']))
             $model->attributes = $_GET['Usuario'];
 
-
+        var_dump($model);
+        die();
 
         $this->render('admin', array(
             'model' => $model,

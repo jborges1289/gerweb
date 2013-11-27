@@ -28,12 +28,17 @@ $usuario = Yii::app()->user->id;
     
     
      if($userRol->rol_id== '1'){
-        $this->menu=array(
-	array('label'=>'Crear Proyecto', 'url'=>array('create')),
-	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')), 
-        array('label'=>'Listar Usuarios', 'url'=>array('usuario/index')),   
-         
-         );
+     
+         $this->menu=array(
+    
+        array('label'=>'Crear Proyecto', 'url'=>array('create')),
+//	array('label'=>'Listar Proyectos', 'url'=>array('index')),
+        array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
+	array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')),  
+	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+   
+);
         
      }else if($userRol->rol_id== '2'){
          

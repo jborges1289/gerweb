@@ -2,10 +2,6 @@
 /* @var $this UsuarioController */
 /* @var $model Usuario */
 
-$this->breadcrumbs=array(
-	'Usuarios'=>array('index'),
-	'Manage',
-);
 
 
 
@@ -30,12 +26,6 @@ $usuario = Yii::app()->user->id;
 
     
 
-
-$this->menu=array(
-	array('label'=>'List Usuario', 'url'=>array('index')),
-	array('label'=>'Create Usuario', 'url'=>array('create')),
-);
-
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
@@ -53,7 +43,29 @@ $('.search-form form').submit(function(){
 
 <?php if($userRol->rol_id =='1'){
     
+    $this->breadcrumbs=array(
+	'Usuarios'=>array('index'),
+	'Gestión Admin de Riesgos',
+);
+
+   
+     $this->menu=array(
+    
+        array('label'=>'Crear Proyecto', 'url'=>array('create')),
+	array('label'=>'Listar Proyectos', 'url'=>array('index')),
+        array('label'=>'Crear Admin de Riesgos', 'url'=>array('create')),
+//        array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
+	array('label'=>'Listar Admin de Riesgos', 'url'=>array('index')),  
+	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+
+        
+);
+    
+    
    echo '<h1>Gestión de Admin de Riesgos</h1>';
+   
+   
+   
     
 }else if($userRol->rol_id=='2'){
     

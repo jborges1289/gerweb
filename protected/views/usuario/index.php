@@ -2,15 +2,7 @@
 /* @var $this UsuarioController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Usuarios'=>'',
-        'Listar Usuarios'
-);
 
-$this->menu=array(
-	array('label'=>'Create Usuario', 'url'=>array('create')),
-	array('label'=>'Manage Usuario', 'url'=>array('admin')),
-);
 
 
 $usuario = Yii::app()->user->id;
@@ -35,14 +27,25 @@ $usuario = Yii::app()->user->id;
     
     
      if($userRol->rol_id== '1'){
-        $this->menu=array(
-	array('label'=>'Crear Proyecto', 'url'=>array('proyecto/create')),
-        array('label'=>'Listar Proyectos', 'url'=>array('proyecto/index')),    
-	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')), 
-           
          
-         );
+          $this->breadcrumbs=array(
+	'Usuarios'=>'',
+        'Listar Admin de Riesgos',
+);
+         
+     $this->menu=array(
+    
+        array('label'=>'Crear Proyecto', 'url'=>array('create')),
+	array('label'=>'Listar Proyectos', 'url'=>array('index')),
+        array('label'=>'Crear Admin de Riesgos', 'url'=>array('create')),
+        array('label'=>'Gestión Admin de Riesgos', 'url'=>array('admin')),
+//	array('label'=>'Listar Admin de Riesgos', 'url'=>array('index')),  
+	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+   
+);
         
+     echo '<h1>Listar Admin de Riesgos</h1>';
+     
      }else if($userRol->rol_id== '2'){
          
          //No tiene acceso a este menu el usuario Administrador de Riesgos
@@ -54,7 +57,7 @@ $usuario = Yii::app()->user->id;
 
 ?>
 
-<h1>Listar Usuarios</h1>
+
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

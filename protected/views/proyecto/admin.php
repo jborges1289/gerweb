@@ -39,8 +39,7 @@ $usuario = Yii::app()->user->id;
         array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
 	array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')),  
 	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
-
-        
+   
 );
        
    }

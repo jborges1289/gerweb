@@ -2,10 +2,6 @@
 /* @var $this UsuarioController */
 /* @var $model Usuario */
 
-$this->breadcrumbs=array(
-	'Usuarios'=>array('index'),
-	'Crear Usuario',
-);
 
 $usuario = Yii::app()->user->id;
 
@@ -30,14 +26,30 @@ $usuario = Yii::app()->user->id;
     
      if($userRol->rol_id== '1'){
          
-         $this->menu=array(
-	array('label'=>'Listar Usuario', 'url'=>array('index')),
-	array('label'=>'Administrar Usuario', 'url'=>array('admin')),
+         $this->breadcrumbs=array(
+	'Usuarios'=>array('index'),
+	'Crear Admin de Riesgos',
 );
+ $this->menu=array(
+    
+        array('label'=>'Crear Proyecto', 'url'=>array('create')),
+	array('label'=>'Listar Proyectos', 'url'=>array('index')),
+//        array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
+	array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')),  
+	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+
+        
+);
+     
          echo '<h1>Crear Admin de Riesgos</h1>';
          
      }else if($userRol->rol_id=='2'){
-         
+         $this->breadcrumbs=array(
+	'Usuarios'=>array('index'),
+	'Crear Integrante de Riesgos',
+);
+
          
          $this->menu=array(
 
