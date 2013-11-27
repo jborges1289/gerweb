@@ -1,6 +1,6 @@
 <?php
 
-class UsuarioRolController extends Controller {
+class AdminAdminRiesgoController extends Controller {
 
     public function actionIndex() {
         $this->render('index');
@@ -35,31 +35,24 @@ class UsuarioRolController extends Controller {
 
     public function actionCreate() {
 
+        $idAdminRiesgos = $_GET['idAdmin'];
 
-        $rol = $_GET['rol'];
-        $id = $_GET['id'];
+        $model = new AdminAdminRiesgo();
 
-        $model = new UsuarioRol();
+        $userSession = Yii::app()->user->id;
+        $usuario = Usuario::model()->find('usuario=:user', array(':user' => $userSession));
 
-        $model->usuario_id = $id;
-        $model->rol_id = $rol;
-
+        $model->administrador_riesgo = $idAdminRiesgos;
+        $model->administrador= $usuario->id_usuario;
 
 
 
         if ($model->save()) {
-            if ($model->rol_id == 2) {
-                $this->redirect(array('adminAdminRiesgo/create&idAdmin=' . $model->usuario_id));
-            } else {
-                if ($model->rol_id == 3) {
-                    $this->redirect(array('equipoRiesgo/create&idInt=' . $model->usuario_id));
-                } else {
-                    $this->redirect(array('usuario/ver&id=' . $model->usuario_id));
-                }
-            }
+
+            $this->redirect(array('usuario/ver&id=' . $model->administrador_riesgo));
         } else {
 
-            $modelError = Usuario::model()->findAllByAttributes($model->usuario_id);
+            $modelError = Usuario::model()->findAllByAttributes($model->administrador_riesgo);
             $modelError->perfil = $rol;
             $this->render('/usuario/create', array(
                 'model' => $modelError,
