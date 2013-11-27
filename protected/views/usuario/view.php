@@ -30,5 +30,5 @@ $this->menu=array(
 	),
 )); 
 
-echo '<br><br>';
+
 ?>

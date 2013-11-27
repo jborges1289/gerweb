@@ -37,7 +37,7 @@ class UsuarioController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'users'=>array('admin','Jose','JeansLi'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -149,6 +149,8 @@ class UsuarioController extends Controller
 		if(isset($_GET['Usuario']))
 			$model->attributes=$_GET['Usuario'];
 
+              
+                
 		$this->render('admin',array(
 			'model'=>$model,
 		));

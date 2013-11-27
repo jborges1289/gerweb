@@ -45,7 +45,7 @@ if($userRol->rol_id == '1'){
     $this->menu=array(
 	array('label'=>'Crear Riesgo', 'url'=>array('create')),     
 	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
-        array('label'=>'Crear Usuario', 'url'=>array('usuario/create')),     
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),     
        
 );
     

@@ -40,7 +40,7 @@ $usuario = Yii::app()->user->id;
    
         array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
 	array('label'=>'Listar Riesgo', 'url'=>array('index')),
-        array('label'=>'Crear Usuario', 'url'=>array('usuario/create')),
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
 	
 );
          

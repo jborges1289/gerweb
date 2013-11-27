@@ -30,16 +30,16 @@ $usuario = Yii::app()->user->id;
 
 
 
-   if($usuario_rol_id== '1'){}
+   if($userRol->rol_id== '2'){
 
 $this->menu=array(
 	
 	
         array('label'=>'Listar Riesgo', 'url'=>array('index')),
         array('label'=>'Crear Riesgo', 'url'=>array('create')),
-        array('label'=>'Crear Usuario', 'url'=>array('usuario/create')),
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
 );
-
+   }
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
