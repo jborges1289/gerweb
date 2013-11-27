@@ -34,6 +34,7 @@ $usuario = Yii::app()->user->id;
 	array('label'=>'Listar Usuario', 'url'=>array('index')),
 	array('label'=>'Administrar Usuario', 'url'=>array('admin')),
 );
+         echo '<h1>Crear Admin de Riesgos</h1>';
          
      }else if($userRol->rol_id=='2'){
          
@@ -43,19 +44,19 @@ $usuario = Yii::app()->user->id;
 	array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
         array('label'=>'Gestionar Riesgo', 'url'=>array('riesgo/admin')),
 	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
-	
 
 );
+         
+         echo '<h1>Crear Integrante de Riesgos</h1>';
+         
      }else if($userRol->rol_id=='3'){
          
-         
+         //no tiene menu este usuario
          
      }
 
-
-
 ?>
 
-<h1>Crear Usuario</h1>
+
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
