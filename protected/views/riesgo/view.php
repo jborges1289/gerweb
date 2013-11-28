@@ -51,8 +51,8 @@ $usuario = Yii::app()->user->id;
 	
         array('label'=>'Actualizar Riesgo', 'url'=>array('update', 'id'=>$model->id_riesgo)),
 	array('label'=>'Crear Riesgo', 'url'=>array('create')),
-        array(),
 	array('label'=>'Eliminar Riesgo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_riesgo),'confirm'=>'Seguro desea eliminar este riesgo?')),
+        array('label'=>'Linea de Corte de Riesgos', 'url'=>array('lineaCorte')),
 //	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
         array(),
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
@@ -97,4 +97,5 @@ $usuario = Yii::app()->user->id;
 		//'linea_corte',
 	),
 )); ?>
+
 <?php echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)')); ?>

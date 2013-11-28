@@ -106,8 +106,40 @@ class Riesgo extends CActiveRecord {
     public function search() {
         // @todo Please modify the following code to remove attributes that should not be searched.
 
-        $criteria = new CDbCriteria;
+        
+         $usuario = Yii::app()->user->id;
 
+
+        $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+
+
+        $usuario_rol_id = $users->id_usuario;
+
+        $userRol = UsuarioRol::model()->find(array(
+            'condition' => 'usuario_id=:usuario_id',
+            'params' => array(':usuario_id' => $usuario_rol_id),
+                )
+        );
+
+
+        $criteria = new CDbCriteria();
+
+        if ($userRol->rol_id == '2') {
+        
+        $criteria = new CDbCriteria;
+        
+          $criteria->select = 't.*,p.*';
+          $criteria->join = 'INNER JOIN proyecto p ON t.id_proyecto = p.id_proyecto';
+          $criteria->condition ='p.admin_riesgo='.$usuario_rol_id.'';
+        
+        }
+        
+        
         $criteria->compare('id_riesgo', $this->id_riesgo, true);
         $criteria->compare('nombre', $this->nombre, true);
         $criteria->compare('categoria', $this->categoria, true);

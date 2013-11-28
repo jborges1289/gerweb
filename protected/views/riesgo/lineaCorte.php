@@ -1,6 +1,52 @@
+<?php
+$this->breadcrumbs=array(
+	'Riesgos'=>array('index'),
+	'Gestión de Riesgos',
+);
 
-<h1>Proyecto: <?php echo $proyecto->titulo; ?></h1>
 
+
+$usuario = Yii::app()->user->id;
+
+
+     $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+    
+        
+   $usuario_rol_id = $users->id_usuario;
+   
+    $userRol = UsuarioRol::model()->find(array(
+        'condition' => 'usuario_id=:usuario_id',
+        'params' => array(':usuario_id' => $usuario_rol_id),
+            )
+    );
+
+
+
+   if($userRol->rol_id== '2'){
+
+$this->menu=array(
+	
+	array('label'=>'Crear Riesgo', 'url'=>array('create')),
+//        array('label'=>'Linea de Corte de Riesgos', 'url'=>array('lineaCorte')),
+        array('label'=>'Listar Riesgo', 'url'=>array('index')),
+        
+        array(),
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
+        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
+);
+   }
+
+
+
+echo '<h1>Proyecto:  '.$proyecto->titulo.' </h1>'
+
+?>
 
 <div class="form">
     <div class="row">
@@ -35,6 +81,7 @@
             <?php
             echo CHtml::beginForm(array('riesgo/editarLinea'), 'post');
             ?>
+          
             <select name="C_Riesgos"> 
                 <?php
                 foreach ($riesgos as $riesgo) {
@@ -42,21 +89,36 @@
                 }
                 ?>
             </select>
+               
+        
+            
             <?php if (!$existeLineaCorte) { ?>
                 <?php 
                 echo CHtml::hiddenField('idRiesgo', $idRiesgo);
-                echo CHtml::submitButton('Crear línea de Corte', array('style' => 'margin-left: 10px')); ?>
-            <?php } else { ?>
+             
+                echo CHtml::submitButton('Crear línea de Corte', array('style' => 'margin-left: 10px')); 
+                 echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
+              ?>
+                    <?php } else { ?>
                 <?php
                 echo CHtml::hiddenField('idRiesgo', $idRiesgo);
                 echo CHtml::submitButton('Editar línea de Corte', array('style' => 'margin-left: 10px'));
-                echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
+                 echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
+                
                 ?>
+                
             <?php } ?>
+           
             <?php echo CHtml::endForm(); ?>
         <?php } else { ?>
             El proyecto no cuenta con riesgos.
         <?php } ?>
 
     </div>
+</div>
+
+<div>
+    <?php
+   
+    ?>
 </div>

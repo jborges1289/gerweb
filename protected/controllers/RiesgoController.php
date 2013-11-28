@@ -189,7 +189,44 @@ class RiesgoController extends Controller {
      */
 
     public function actionLineaCorte() {
-        $idProyecto = $_GET['proyecto'];
+        
+        
+         $usuario = Yii::app()->user->id;
+
+
+        $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+
+
+        $usuario_rol_id = $users->id_usuario;
+
+        $userRol = UsuarioRol::model()->find(array(
+            'condition' => 'usuario_id=:usuario_id',
+            'params' => array(':usuario_id' => $usuario_rol_id),
+                )
+        );
+
+
+        $criteria = new CDbCriteria();
+
+        if ($userRol->rol_id == '2') {
+        
+        $criteria = new CDbCriteria;
+        
+          $criteria->select = 't.*,p.*';
+          $criteria->join = 'INNER JOIN proyecto p ON t.id_proyecto = p.id_proyecto';
+          $criteria->condition ='p.admin_riesgo='.$usuario_rol_id.'';
+        
+        }
+        
+        $model = Proyecto::model()->find($criteria);
+        
+        
+        $idProyecto = $model->id_proyecto;
         $idRiesgo = 0;
         $existeLineaCorte = false;
         $riesgo = Riesgo::model()->find('id_proyecto=:idProyecto && linea_corte=:corte', array(':idProyecto' => $idProyecto, ':corte' => 1));

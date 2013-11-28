@@ -48,6 +48,7 @@ if ($userRol->rol_id == '1') {
 	
 //        array('label'=>'Listar Riesgo', 'url'=>array('index')),
         array('label'=>'Crear Riesgo', 'url'=>array('create')),
+        array('label'=>'Linea de Corte de Riesgos', 'url'=>array('lineaCorte')),
         array(),
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
         array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
@@ -70,8 +71,9 @@ $this->widget('zii.widgets.CListView', array(
     'itemView' => '_view',
 ));
 ?>
-<br>
 <div>
+    <br>
+<br>
 <?php
 echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px', 'onClick' => 'history.go(-1)'));
 ?>
