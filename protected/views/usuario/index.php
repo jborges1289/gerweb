@@ -66,3 +66,8 @@ $usuario = Yii::app()->user->id;
 	'itemView'=>'_view',
 )); ?>
 <br>
+<div>
+    <?php
+     echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
+?>
+     </div>

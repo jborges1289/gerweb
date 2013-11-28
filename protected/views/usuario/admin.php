@@ -105,4 +105,4 @@ or <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especifica
 			'class'=>'CButtonColumn',
 		),
 	),
-)); echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
+)); echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>

@@ -36,5 +36,5 @@ $this->menu=array(
 )); 
 ?>
 <?php
-echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
+echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
 ?>

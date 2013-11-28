@@ -59,4 +59,4 @@ o <b> = </ b>) al principio de cada uno de los valores de búsqueda para especif
 		),
 	),
 )); 
-echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
+echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>

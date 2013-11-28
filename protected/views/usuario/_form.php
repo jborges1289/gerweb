@@ -78,7 +78,7 @@ $rol = UsuarioRol::model()->find('usuario_id=:usuario', array(':usuario' => $usu
 
     <div class="row buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Editar'); 
-        echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-2)'));?>
+        echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
     </div>
 
     <?php $this->endWidget(); ?>

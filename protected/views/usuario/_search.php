@@ -42,8 +42,8 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); 
-                echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
+		<?php echo CHtml::submitButton('Buscar'); 
+//                echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
 	</div>
 
 <?php $this->endWidget(); ?>
