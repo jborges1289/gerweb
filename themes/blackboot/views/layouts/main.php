@@ -177,26 +177,26 @@ if (!Yii::app()->user->isGuest) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <h4>Heading 1</h4>
+                        <h4><a href="">Inicio</a></h4>
                         <ul>
-                            <li><a href="#">Subheading 1.1</a></li>
+<!--                            <li><a href="#">Subheading 1.1</a></li>
                             <li><a href="#">Subheading 1.2</a></li>
                             <li><a href="#">Subheading 1.3</a></li>
-                            <li><a href="#">Subheading 1.4</a></li>
+                            <li><a href="#">Subheading 1.4</a></li>-->
                         </ul>
                     </div> <!-- /span3 -->
 
                     <div class="col-md-3">
                         <h4>Heading 2</h4>
                         <ul>
-                            <li><a href="#">Subheading 2.1</a></li>
+<!--                            <li><a href="#">Subheading 2.1</a></li>
                             <li><a href="#">Subheading 2.2</a></li>
                             <li><a href="#">Subheading 2.3</a></li>
-                            <li><a href="#">Subheading 2.4</a></li>
+                            <li><a href="#">Subheading 2.4</a></li>-->
                         </ul>
                     </div> <!-- /span3 -->
 
-                    <div class="col-md-3">
+<!--                    <div class="col-md-3">
                         <h4>Heading 3</h4>	
                         <ul>
                             <li><a href="#">Subheading 3.1</a></li>
@@ -204,7 +204,7 @@ if (!Yii::app()->user->isGuest) {
                             <li><a href="#">Subheading 3.3</a></li>
                             <li><a href="#">Subheading 3.4</a></li>
                         </ul>
-                    </div> <!-- /span3 -->
+                    </div>  /span3 
 
                     <div class="col-md-3">
                         <h4>Heading 4</h4>
@@ -214,7 +214,7 @@ if (!Yii::app()->user->isGuest) {
                             <li><a href="#">Subheading 4.3</a></li>
                             <li><a href="#">Subheading 4.4</a></li>
                         </ul>
-                    </div> <!-- /span3 -->
+                    </div>  /span3 -->
                 </div> <!-- /row -->
             </div> <!-- /container -->
         </div>

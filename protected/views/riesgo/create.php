@@ -48,9 +48,9 @@ $usuario = Yii::app()->user->id;
 );
          
      }else if($userRol->rol_id=='3'){
-          $this->menu=array(  array('label'=>'Listar Riesgo', 'url'=>array('index')
+//          $this->menu=array(  array('label'=>'Listar Riesgo', 'url'=>array('index')
              
-                 ));
+//                 ));
          
      }
 ?>

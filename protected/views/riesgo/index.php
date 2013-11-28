@@ -75,6 +75,8 @@ $this->widget('zii.widgets.CListView', array(
     <br>
 <br>
 <?php
-echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px', 'onClick' => 'history.go(-1)'));
+if($userRol->rol_id== '1' || $userRol =='2'){
+echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
+}
 ?>
 </div>
