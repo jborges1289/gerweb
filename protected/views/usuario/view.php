@@ -8,11 +8,16 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Usuario', 'url'=>array('index')),
-	array('label'=>'Create Usuario', 'url'=>array('create')),
-	array('label'=>'Update Usuario', 'url'=>array('update', 'id'=>$model->id_usuario)),
-	array('label'=>'Delete Usuario', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_usuario),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Usuario', 'url'=>array('admin')),
+	 
+        array('label'=>'Crear Proyecto', 'url'=>array('proyecto/create')),
+	array('label'=>'Listar Proyectos', 'url'=>array('proyecto/index')),
+        array(''=>'','url'=>array('#')), 
+	array('label'=>'Actualizar Admin de Riesgos', 'url'=>array('update', 'id'=>$model->id_usuario)),
+        array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),	
+        array('label'=>'Eliminar Admin de Riesgos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_usuario),'confirm'=>'¿Está seguro que desea borrar este elemento??')),
+//        array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),  
+	array(''=>'','url'=>array('#')), 
+        array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
 );
 ?>
 

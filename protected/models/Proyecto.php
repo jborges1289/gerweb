@@ -91,7 +91,33 @@ class Proyecto extends CActiveRecord {
     public function search() {
         // @todo Please modify the following code to remove attributes that should not be searched.
 
-        $criteria = new CDbCriteria;
+      $usuario = Yii::app()->user->id;
+
+
+        $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+
+
+        $usuario_rol_id = $users->id_usuario;
+
+        $userRol = UsuarioRol::model()->find(array(
+            'condition' => 'usuario_id=:usuario_id',
+            'params' => array(':usuario_id' => $usuario_rol_id),
+                )
+        );
+
+
+        $criteria = new CDbCriteria();
+
+        if ($userRol->rol_id == '1') {
+
+            $criteria->select = 't.*,u.*';
+            $criteria->join = 'INNER JOIN usuario u ON t.administrador = u.id_usuario';
+            $criteria->condition ='t.administrador='.$usuario_rol_id.'';
 
         $criteria->compare('id_proyecto', $this->id_proyecto, true);
         $criteria->compare('titulo', $this->titulo, true);
@@ -101,6 +127,13 @@ class Proyecto extends CActiveRecord {
         $criteria->compare('fecha_fin', $this->fecha_fin, true);
         $criteria->compare('administrador', $this->administrador, true);
         $criteria->compare('admin_riesgo', $this->admin_riesgo, true);
+        
+        } else if ($userRol->rol_id == '2') {
+         
+            
+        }
+        
+    
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

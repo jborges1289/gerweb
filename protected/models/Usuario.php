@@ -55,7 +55,6 @@ class Usuario extends CActiveRecord {
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id_usuario, usuario, contrasena, nombres, primer_apellido, segundo_apellido', 'safe', 'on' => 'search'),
-           
         );
     }
 
@@ -80,7 +79,7 @@ class Usuario extends CActiveRecord {
         return array(
             'id_usuario' => 'ID',
             'usuario' => 'Usuario',
-            'contrasena' => 'Contrase&ntildea',
+            'contrasena' => 'Contraseña',
             'nombres' => 'Nombres',
             'primer_apellido' => 'Primer Apellido',
             'segundo_apellido' => 'Segundo Apellido',
@@ -108,48 +107,49 @@ class Usuario extends CActiveRecord {
         $usuario = Yii::app()->user->id;
 
 
-     $users = Usuario::model()->find(array(
+        $users = Usuario::model()->find(array(
             'select' => 'id_usuario',
             'condition' => 'usuario=:usuario',
             'params' => array(':usuario' => $usuario),
                 )
         );
-    
-        
-   $usuario_rol_id = $users->id_usuario;
-   
-    $userRol = UsuarioRol::model()->find(array(
-        'condition' => 'usuario_id=:usuario_id',
-        'params' => array(':usuario_id' => $usuario_rol_id),
-            )
-    );
-
-        
-$criteria = new CDbCriteria();
-
-   if($userRol->rol_id == '1'){
-       
-       $criteria->select = 't.*,p.*'; 
-$criteria->join = 'INNER JOIN proyecto p ON t.id_usuario = p.administrador'; 
-
-        $criteria->compare('id_usuario', $this->id_usuario, true);
-        $criteria->compare('usuario', $this->usuario, true);
-        $criteria->compare('contrasena', $this->contrasena, true);
-        $criteria->compare('nombres', $this->nombres, true);
-        $criteria->compare('primer_apellido', $this->primer_apellido, true);
-        $criteria->compare('segundo_apellido', $this->segundo_apellido, true);
-       
-   }else if($userRol->rol_id == '2'){
-       
-       
-   }
-        
 
 
+        $usuario_rol_id = $users->id_usuario;
+
+        $userRol = UsuarioRol::model()->find(array(
+            'condition' => 'usuario_id=:usuario_id',
+            'params' => array(':usuario_id' => $usuario_rol_id),
+                )
+        );
 
 
-        
-        
+        $criteria = new CDbCriteria();
+
+        if ($userRol->rol_id == '1') {
+
+            $criteria->select = 't.*,p.*';
+            $criteria->join = 'INNER JOIN admin_admin p ON t.id_usuario = p.administrador_riesgo';
+            $criteria->condition ='p.administrador='.$usuario_rol_id.'';
+
+            $criteria->compare('id_usuario', $this->id_usuario, true);
+            $criteria->compare('usuario', $this->usuario, true);
+            $criteria->compare('contrasena', $this->contrasena, true);
+            $criteria->compare('nombres', $this->nombres, true);
+            $criteria->compare('primer_apellido', $this->primer_apellido, true);
+            $criteria->compare('segundo_apellido', $this->segundo_apellido, true);
+            
+        } else if ($userRol->rol_id == '2') {
+         
+            
+        }
+
+
+
+
+
+
+
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));

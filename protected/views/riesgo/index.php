@@ -35,10 +35,12 @@ if($userRol->rol_id == '1'){
    $this->menu=array(
 	
        
-	 array('label'=>'Crear Proyecto', 'url'=>array('create')),
-	array('label'=>'Listar Proyectos', 'url'=>array('index')),
+	 array('label'=>'Crear Proyecto', 'url'=>array('proyecto/create')),
+	array('label'=>'Listar Proyectos', 'url'=>array('proyecto/index')),
+        array(''=>'','url'=>array('#')), 
         array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),
         array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
+        array(''=>'','url'=>array('#')), 
 	array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')),
 );
          

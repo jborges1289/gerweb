@@ -175,8 +175,8 @@ $usuario = Yii::app()->user->id;
         
         'criteria'=>array(
         'select' => 't.*, p.*',
-        'join' => 'INNER JOIN proyecto p ON t.id_usuario = p.administrador',    
- 
+        'join' => 'INNER JOIN admin_admin p ON t.id_usuario = p.administrador_riesgo',    
+        'condition'=>'p.administrador = '.$usuario_rol_id.'',
         )
             
            ));
@@ -206,9 +206,7 @@ $usuario = Yii::app()->user->id;
         if (isset($_GET['Usuario']))
             $model->attributes = $_GET['Usuario'];
 
-        var_dump($model);
-        die();
-
+     
         $this->render('admin', array(
             'model' => $model,
         ));
