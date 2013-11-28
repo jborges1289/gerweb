@@ -184,6 +184,17 @@ $usuario = Yii::app()->user->id;
         
     }else if($userRol->rol_id == '2'){
         
+        $model = new Usuario();
+      
+        $dataProvider = new CActiveDataProvider($model, array(
+        
+        'criteria'=>array(
+        'select' => 't.*, p.*',
+        'join' => 'INNER JOIN equipo_riesgos p ON t.id_usuario = p.equipo_riesgo',    
+        'condition'=>'p.admin_riesgos = '.$usuario_rol_id.'',
+        )
+            
+           ));
         
     }else if($userRol->rol_id == '3'){
         

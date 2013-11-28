@@ -141,6 +141,28 @@ class Usuario extends CActiveRecord {
             
         } else if ($userRol->rol_id == '2') {
          
+         
+           $criteria->select = 't.*,p.*';
+            $criteria->join = 'INNER JOIN equipo_riesgos p ON t.id_usuario = p.equipo_riesgo';
+            $criteria->condition ='p.admin_riesgos='.$usuario_rol_id.'';
+
+            $criteria->compare('id_usuario', $this->id_usuario, true);
+            $criteria->compare('usuario', $this->usuario, true);
+            $criteria->compare('contrasena', $this->contrasena, true);
+            $criteria->compare('nombres', $this->nombres, true);
+            $criteria->compare('primer_apellido', $this->primer_apellido, true);
+            $criteria->compare('segundo_apellido', $this->segundo_apellido, true);
+             
+        }else{
+            
+            
+            
+            $criteria->compare('id_usuario', $this->id_usuario, true);
+            $criteria->compare('usuario', $this->usuario, true);
+            $criteria->compare('contrasena', $this->contrasena, true);
+            $criteria->compare('nombres', $this->nombres, true);
+            $criteria->compare('primer_apellido', $this->primer_apellido, true);
+            $criteria->compare('segundo_apellido', $this->segundo_apellido, true);
             
         }
 

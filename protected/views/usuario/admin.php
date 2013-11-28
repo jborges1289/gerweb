@@ -69,8 +69,25 @@ $('.search-form form').submit(function(){
    
     
 }else if($userRol->rol_id=='2'){
+    $this->breadcrumbs=array(
+	'Usuarios'=>array('index'),
+	'Gestión de Integrantes de Riesgos',
+);
     
-    echo '<h1>Gestión de Equipo de Riesgos</h1>';
+    
+    $this->menu=array(
+        
+        array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
+        array('label'=>'Listar Riesgo', 'url'=>array('riesgo/index')),
+        
+        array(),
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
+//        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
+        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
+    );
+    
+    
+    echo '<h1>Gestión de Integrantes de Riesgos</h1>';
     
 } ?>
 
@@ -79,7 +96,7 @@ $('.search-form form').submit(function(){
 
 <p>
 También puede escribir un operador de comparación(<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar cómo se debe hacer la comparación.
+o <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar cómo se debe hacer la comparación.
 </p>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>

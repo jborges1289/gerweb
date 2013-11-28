@@ -43,11 +43,16 @@ if ($userRol->rol_id == '1') {
     );
 } else if ($userRol->rol_id == '2') {
 
-    $this->menu = array(
-        array('label' => 'Crear Riesgo', 'url' => array('create')),
-        array('label' => 'Gestionar Riesgo', 'url' => array('admin')),
-        array('label' => 'Crear Integrante de Riesgos', 'url' => array('usuario/create')),
-    );
+   $this->menu=array(
+	
+	
+//        array('label'=>'Listar Riesgo', 'url'=>array('index')),
+        array('label'=>'Crear Riesgo', 'url'=>array('create')),
+        array(),
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
+        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
+);
 } else if ($userRol->rol_id == '3') {
 
     $this->menu = array(

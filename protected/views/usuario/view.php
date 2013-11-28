@@ -7,6 +7,33 @@ $this->breadcrumbs=array(
 	$model->id_usuario,
 );
 
+
+
+$usuario = Yii::app()->user->id;
+
+
+     $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+    
+        
+   $usuario_rol_id = $users->id_usuario;
+   
+    $userRol = UsuarioRol::model()->find(array(
+        'condition' => 'usuario_id=:usuario_id',
+        'params' => array(':usuario_id' => $usuario_rol_id),
+            )
+    );
+
+
+
+   if($userRol->rol_id== '1'){
+
+
+
 $this->menu=array(
 	 
         array('label'=>'Crear Proyecto', 'url'=>array('proyecto/create')),
@@ -19,6 +46,25 @@ $this->menu=array(
 	array(''=>'','url'=>array('#')), 
         array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
 );
+
+
+   }else if($userRol->rol_id== '2'){
+       
+       $this->menu=array(
+	
+	array('label'=>'Crear Riesgo', 'url'=>array('create')),
+        array('label'=>'Gestión de Riesgos', 'url'=>array('admin')),
+        array('label'=>'Listar Riesgo', 'url'=>array('index')),
+       
+        array(),
+        array('label'=>'Actualizar Integrante de Riesgos', 'url'=>array('update', 'id'=>$model->id_usuario)),   
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Eliminar Admin de Riesgos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_usuario),'confirm'=>'¿Está seguro que desea borrar este elemento??')),
+//        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
+        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
+);
+       
+   }
 ?>
 
 <h1>Usuario #<?php echo $model->id_usuario; ?></h1>

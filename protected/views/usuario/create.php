@@ -53,11 +53,15 @@ $usuario = Yii::app()->user->id;
 );
 
          
-         $this->menu=array(
-
+        $this->menu=array(
+	
 	array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
-        array('label'=>'Gestionar Riesgo', 'url'=>array('riesgo/admin')),
-	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+        array('label'=>'Listar Riesgo', 'url'=>array('riesgo/index')),
+        
+        array(),
+//        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('admin')),
+        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('index')),
 
 );
          

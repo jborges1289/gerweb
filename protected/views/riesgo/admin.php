@@ -34,10 +34,13 @@ $usuario = Yii::app()->user->id;
 
 $this->menu=array(
 	
-	
+	array('label'=>'Crear Riesgo', 'url'=>array('create')),
         array('label'=>'Listar Riesgo', 'url'=>array('index')),
-        array('label'=>'Crear Riesgo', 'url'=>array('create')),
+        array('label'=>'Linea de Corte de Riesgos', 'url'=>array('lineaCorte')),
+        array(),
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
+        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
 );
    }
 Yii::app()->clientScript->registerScript('search', "
@@ -58,7 +61,7 @@ $('.search-form form').submit(function(){
 
 <p>
 También puede escribir un operador de comparación(<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar cómo se debe hacer la comparación.
+o <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar cómo se debe hacer la comparación.
 </p>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>

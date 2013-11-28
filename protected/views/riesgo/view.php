@@ -53,8 +53,11 @@ $usuario = Yii::app()->user->id;
 	array('label'=>'Crear Riesgo', 'url'=>array('create')),
         array(),
 	array('label'=>'Eliminar Riesgo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_riesgo),'confirm'=>'Seguro desea eliminar este riesgo?')),
-	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
-        array('label'=>'Crear Usuario', 'url'=>array('usuario/create')),
+//	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
+        array(),
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
+        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
+        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
 );
          
          

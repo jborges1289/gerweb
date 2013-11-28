@@ -50,7 +50,22 @@ $usuario = Yii::app()->user->id;
      
      }else if($userRol->rol_id== '2'){
          
-         //No tiene acceso a este menu el usuario Administrador de Riesgos
+           $this->breadcrumbs=array(
+	'Usuarios'=>'',
+        'Listar Integrantes de Riesgos',
+);
+         
+         
+         $this->menu=array(
+	
+	
+        array('label'=>'Listar Riesgo', 'url'=>array('riesgo/index')),
+        array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
+        array(),
+        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('create')),
+        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('admin')),
+//        array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
+);
          
      }else if($userRol->rol_id== '3'){
          
