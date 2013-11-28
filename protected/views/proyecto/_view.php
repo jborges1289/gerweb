@@ -37,7 +37,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_riesgo')); ?>:</b>
 	<?php echo CHtml::encode($data->admin_riesgo); ?>
 	<br />
-
+      
 	*/ ?>
 
 </div>

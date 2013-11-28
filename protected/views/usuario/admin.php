@@ -59,7 +59,6 @@ $('.search-form form').submit(function(){
 	array('label'=>'Listar Admin de Riesgos', 'url'=>array('index')),  
         array(''=>'','url'=>array('#')), 
 	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
-
         
 );
     
@@ -106,4 +105,4 @@ or <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especifica
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+)); echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>

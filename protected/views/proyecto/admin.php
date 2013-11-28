@@ -35,11 +35,9 @@ $usuario = Yii::app()->user->id;
     
         array('label'=>'Crear Proyecto', 'url'=>array('create')),
 	array('label'=>'Listar Proyectos', 'url'=>array('index')),
-        array(''=>'','url'=>array('#')),   
         array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),
         array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
-	array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')), 
-        array(''=>'','url'=>array('#')),    
+	array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')),  
 	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
    
 );
@@ -96,4 +94,5 @@ or <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especifica
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+)); 
+echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>

@@ -26,7 +26,8 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('segundo_apellido')); ?>:</b>
-	<?php echo CHtml::encode($data->segundo_apellido); ?>
+	<?php echo CHtml::encode($data->segundo_apellido); 
+        echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
 	<br />
 
 

@@ -125,7 +125,8 @@ $admon_ries = Usuario::model()->findAll($query);
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Registrar' : 'Editar'); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Registrar' : 'Editar'); 
+        echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-2)'));?>
     </div>
 
     <?php $this->endWidget(); ?>

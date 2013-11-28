@@ -94,3 +94,4 @@ $usuario = Yii::app()->user->id;
 		//'linea_corte',
 	),
 )); ?>
+<?php echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)')); ?>

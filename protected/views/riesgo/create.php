@@ -50,8 +50,6 @@ $usuario = Yii::app()->user->id;
                  ));
          
      }
-
-
 ?>
 
 <h1>Crear Riesgo</h1>

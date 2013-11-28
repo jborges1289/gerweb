@@ -58,4 +58,5 @@ o <b> = </ b>) al principio de cada uno de los valores de búsqueda para especif
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+)); 
+echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>

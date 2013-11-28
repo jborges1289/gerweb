@@ -34,6 +34,7 @@ $this->menu=array(
 		'segundo_apellido',
 	),
 )); 
-
-
+?>
+<?php
+echo CHtml::submitButton('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
 ?>
