@@ -58,6 +58,10 @@ class UsuarioController extends Controller {
                 'actions' => array('admin', 'delete','create','delete','index','view','update'),
                 'users' => $usuario,
             ),
+            array('allow',// allow all users to perform 'index' and 'view' actions
+                'actions' => array('registro'),
+                'users' => array('*'),
+            ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
@@ -81,6 +85,18 @@ class UsuarioController extends Controller {
         ));
     }
 
+    public function actionRegistro() {
+        $model = new Usuario;
+        if (isset($_POST['Usuario'])) {
+            $model->attributes = $_POST['Usuario'];
+
+            if ($model->save())
+                $this->redirect(array('usuarioRol/create', 'id' => $model->id_usuario, 'rol' => $model->perfil));
+        }
+        $this->render('register', array(
+            'model' => $model,
+        ));
+    }
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.

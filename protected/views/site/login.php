@@ -29,6 +29,11 @@ $this->breadcrumbs = array(
 
 <h1>Ingresar</h1>
 
+<?php 
+    if($mensaje){
+        echo '<p class="" style="color:red;">Felicidades!!. Se ha registrado como Administrador, ahora Logueese</p>';
+    }
+?>
 <p class="">Por favor complete el siguiente formulario con sus datos de acceso:</p>
 
 <div class="form">
@@ -66,7 +71,9 @@ $this->breadcrumbs = array(
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton('Entrar'); ?>
+        <?php echo CHtml::submitButton('Entrar'); 
+        echo CHtml::link('*Registrarse como Administrador',array('usuario/registro'),array('style' => 'margin-left: 10px'))
+        ?>
     </div>
 
     <?php $this->endWidget(); ?>

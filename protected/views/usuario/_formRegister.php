@@ -13,7 +13,7 @@
         // controller action is handling ajax validation correctly.
         // There is a call to performAjaxValidation() commented in generated controller code.
         // See class documentation of CActiveForm for details on this.
-        'enableAjaxValidation' => false,
+        'enableAjaxValidation' => true,
         'enableClientValidation' => true,
         'clientOptions' => array('validateOnSubmit' => true,
             'validateOnChange' => true,
@@ -61,16 +61,12 @@
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'discriminador'); ?>
-        <?php //echo $form->textField($model,'discriminador'); ?>
+
+        <?php echo $form->labelEx($model, 'perfil'); ?>
         <?php
-        echo $form->dropDownList($model, 'discriminador',
-                array('1'=>'Administrador de Proyectos',
-                    '2'=>'Administrador de Riesgos','3'=>'Equipo de Riesgos'),
-                array('empty' => 'Seleccione Perfil'));
+        echo $form->hiddenField($model, 'perfil', array('value' => 1));
         ?>
-        <?php echo $form->error($model, 'discriminador');
-        ?>
+        <?php echo $form->error($model, 'perfil'); ?>
     </div>
 
     <div class="row buttons">

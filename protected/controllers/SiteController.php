@@ -87,7 +87,11 @@ class SiteController extends Controller
 	public function actionLogin()
 	{
 		$model=new LoginForm;
-
+                $message=false;
+                if(isset($_GET['register'])){
+                    $message=$_GET['register'];
+                }
+                
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
@@ -140,9 +144,9 @@ class SiteController extends Controller
                         }
 		}
 		// display the login form
-		$this->render('login',array('model'=>$model));
+		$this->render('login',array('model'=>$model, 'mensaje'=>$message));
 	}
-
+        
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */

@@ -48,6 +48,9 @@ class UsuarioRolController extends Controller {
 
 
         if ($model->save()) {
+            if($model->rol_id==1){
+                $this->redirect(array('site/login&register='.true));
+            }
             if ($model->rol_id == 2) {
                 $this->redirect(array('adminAdminRiesgo/create&idAdmin=' . $model->usuario_id));
             } else {
