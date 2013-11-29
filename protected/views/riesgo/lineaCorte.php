@@ -111,7 +111,7 @@ echo '<h1>Proyecto:  '.$proyecto->titulo.' </h1>'
            
             <?php echo CHtml::endForm(); ?>
         <?php } else { ?>
-            El proyecto no cuenta con riesgos.
+            <h3>El proyecto no cuenta con riesgos.</h3>
         <?php } ?>
 
     </div>

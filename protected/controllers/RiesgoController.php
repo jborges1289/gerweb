@@ -85,7 +85,7 @@ class RiesgoController extends Controller {
                 'users' => $usuariosEquipRiesgo,
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('create', 'update', 'admin', 'delete', 'lineaCorte', 'editarLinea','index','view'),
+                'actions' => array('create', 'update', 'admin', 'delete', 'lineaCorte','lineaDeCorte', 'editarLinea','index','view'),
                 'users' => $usuariosAdminRiesgo,
             ),
             array('deny', // deny all users
@@ -296,10 +296,14 @@ class RiesgoController extends Controller {
         
         }
         
-        $model = Proyecto::model()->find($criteria);
+        $model = Proyecto::model()->findAll($criteria);
         
+        $this->render('proyectosLinea', array('proyectosAsignados'=>$model));
         
-        $idProyecto = $model->id_proyecto;
+    }
+
+    public function actionLineaDeCorte(){
+        $idProyecto = $_GET['proyecto'];
         $idRiesgo = 0;
         $existeLineaCorte = false;
         $riesgo = Riesgo::model()->find('id_proyecto=:idProyecto && linea_corte=:corte', array(':idProyecto' => $idProyecto, ':corte' => 1));
@@ -317,7 +321,7 @@ class RiesgoController extends Controller {
             'idRiesgo' => $idRiesgo,
         ));
     }
-
+    
     public function actionEditarLinea() {
         $idRiesgoCorte = Yii::app()->request->getPost('idRiesgo');
         $idRiesgoNCorte = Yii::app()->request->getPost('C_Riesgos');
@@ -328,12 +332,12 @@ class RiesgoController extends Controller {
             $riesgoNCorte = $riesgoNCorte = $this->loadModel($idRiesgoNCorte);
             $riesgoNCorte->setAttribute('linea_corte', true);
             $riesgoNCorte->update();
-            $this->redirect(array('riesgo/lineaCorte', 'proyecto' => $riesgoCorte->id_proyecto));
+            $this->redirect(array('riesgo/lineaDeCorte', 'proyecto' => $riesgoCorte->id_proyecto));
         } else {
             $riesgoNCorte = $this->loadModel($idRiesgoNCorte);
             $riesgoNCorte->setAttribute('linea_corte', true);
             $riesgoNCorte->update();
-            $this->redirect(array('riesgo/lineaCorte', 'proyecto' => $riesgoNCorte->id_proyecto));
+            $this->redirect(array('riesgo/lineaDeCorte', 'proyecto' => $riesgoNCorte->id_proyecto));
         }
     }
 
