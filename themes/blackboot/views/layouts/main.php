@@ -223,10 +223,10 @@ if (!Yii::app()->user->isGuest) {
             <div class="container">
                 <div class="row">
                     <div id="footer-copyright" class="col-md-6">
-                        About us | Contact us | Terms & Conditions
+                        Acerca de | Contacto | Términos y condiciones
                     </div> <!-- /span6 -->
                     <div id="footer-terms" class="col-md-6">
-                        © 2012-13 Black Bootstrap. <a href="http://nachi.me.pn" target="_blank">Nachi</a>.
+                       <!-- © 2012-13 Black Bootstrap. <a href="http://nachi.me.pn" target="_blank">Nachi</a>.-->
                     </div> <!-- /.span6 -->
                 </div> <!-- /row -->
             </div> <!-- /container -->
