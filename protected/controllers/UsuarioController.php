@@ -55,7 +55,7 @@ class UsuarioController extends Controller {
 //                'users' => array('@'),
 //            ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin', 'delete','create','delete','index','view','update'),
+                'actions' => array('admin', 'delete','create','delete','index','view','update','ver'),
                 'users' => $usuario,
             ),
             array('allow',// allow all users to perform 'index' and 'view' actions
