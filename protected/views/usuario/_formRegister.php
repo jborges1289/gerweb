@@ -70,7 +70,8 @@
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Registrar' : 'Editar'); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Registrar' : 'Editar'); 
+         echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
     </div>
 
     <?php $this->endWidget(); ?>
