@@ -3,12 +3,29 @@
 /* @var $model Riesgo */
 /* @var $form CActiveForm */
 
-$oDBC = new CDbCriteria();
-$oDBC->select = 't.*,p.*'; 
-$oDBC->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
-$oDBC->condition = 'p.rol_id = 2 or p.rol_id = 3';
 
-$equipoRiesgo = Usuario::model()->findAll($oDBC);
+$sentenciaSQL = new CDbCriteria();
+$sentenciaSQL->select = 't.*,r.*';
+$sentenciaSQL->join = 'LEFT JOIN usuario r ON r.id_usuario = t.usuario_id';
+$sentenciaSQL->condition = 'r.usuario="' . Yii::app()->user->id . '"';
+$rolUsuarioLogeado = UsuarioRol::model()->find($sentenciaSQL);
+
+if ($rolUsuarioLogeado->rol_id == 2) {
+    $oDBC = new CDbCriteria();
+    $oDBC->select = 't.*,p.*';
+    $oDBC->join = 'LEFT JOIN equipo_riesgos p ON p.equipo_riesgo = t.id_usuario';
+    $oDBC->condition = 'p.admin_riesgos='.$rolUsuarioLogeado->usuario_id;
+
+    $equipoRiesgo = Usuario::model()->findAll($oDBC);
+} else {
+    $adminEncargado=  EquipoRiesgo::model()->find('equipo_riesgo=:equipoR', array(':equipoR' => $rolUsuarioLogeado->usuario_id));
+    $oDBC = new CDbCriteria();
+    $oDBC->select = 't.*,p.*';
+    $oDBC->join = 'LEFT JOIN equipo_riesgos p ON p.equipo_riesgo = t.id_usuario';
+    $oDBC->condition = 'p.admin_riesgos='.$adminEncargado->admin_riesgos;
+
+    $equipoRiesgo = Usuario::model()->findAll($oDBC);
+}
 ?>
 
 <div class="form">
@@ -140,8 +157,17 @@ $equipoRiesgo = Usuario::model()->findAll($oDBC);
     <div class="row">
         <?php echo $form->labelEx($model, 'id_proyecto'); ?>
         <?php
-        $proyectos = CHtml::listData((Proyecto::model()->findAll()), 'id_proyecto', 'titulo');
-        echo $form->dropDownList($model, 'id_proyecto', $proyectos, array('empty' => 'Seleccione Proyecto'));
+        if ($rolUsuarioLogeado->rol_id == 2) {
+            $proyectos = CHtml::listData((Proyecto::model()->findAll('admin_riesgo=:adminR', array(':adminR' => $rolUsuarioLogeado->usuario_id))), 'id_proyecto', 'titulo');
+            echo $form->dropDownList($model, 'id_proyecto', $proyectos, array('empty' => 'Seleccione Proyecto'));
+        } else {
+            $sentenciaSQL = new CDbCriteria();
+            $sentenciaSQL->select = 't.*,er.*';
+            $sentenciaSQL->join = 'LEFT JOIN equipo_riesgos er ON t.admin_riesgo = er.admin_riesgos';
+            $sentenciaSQL->condition = 'er.equipo_riesgo=' . $rolUsuarioLogeado->usuario_id;
+            $proyectos = CHtml::listData((Proyecto::model()->findAll($sentenciaSQL)), 'id_proyecto', 'titulo');
+            echo $form->dropDownList($model, 'id_proyecto', $proyectos, array('empty' => 'Seleccione Proyecto'));
+        }
         ?>
         <?php echo $form->error($model, 'id_proyecto'); ?>
     </div>
@@ -153,8 +179,10 @@ $equipoRiesgo = Usuario::model()->findAll($oDBC);
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Editar'); 
-        echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
+        <?php
+        echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Editar');
+        echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px', 'onClick' => 'history.go(-1)'));
+        ?>
     </div>
 
     <?php $this->endWidget(); ?>
