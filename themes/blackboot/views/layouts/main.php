@@ -178,7 +178,32 @@ if (!Yii::app()->user->isGuest) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <h4><a href="">Inicio</a></h4>
+                        
+                      <?php 
+                   
+                  if (!Yii::app()->user->isGuest) { 
+                      
+                      if ($userRol->rol_id == '1'){
+                          
+                          echo '<h4><a href="index.php?r=proyecto/admin">Inicio</a></h4>';
+                          
+                      }else if($userRol->rol_id == '2'){
+                          
+                           echo '<h4><a href="index.php?r=riesgo/admin">Inicio</a></h4>';
+                          
+                      }else if($userRol->rol_id == '3'){
+                          
+                           echo '<h4><a href="index.php?r=riesgo/index">Inicio</a></h4>';
+                          
+                  }
+                  
+                      }else{
+                          
+                           echo '<h4><a href="index.php?r=site/login">Inicio</a></h4>';
+                          
+                      } ?>  
+                        
+                        
                         <ul>
 <!--                            <li><a href="#">Subheading 1.1</a></li>
                             <li><a href="#">Subheading 1.2</a></li>
@@ -188,7 +213,34 @@ if (!Yii::app()->user->isGuest) {
                     </div> <!-- /span3 -->
 
                     <div class="col-md-3">
-                        <h4>Heading 2</h4>
+                        
+                        
+                               <?php 
+                   
+                  if (!Yii::app()->user->isGuest) { 
+                      
+                      if ($userRol->rol_id == '1'){
+                          
+                          echo '<h4><a href="index.php?r=site/logout">Salir (' . Yii::app()->user->name . ')</a></h4>';
+                          
+                      }else if($userRol->rol_id == '2'){
+                          
+                           echo '<h4><a href="index.php?r=site/logout">Salir (' . Yii::app()->user->name . ')</a></h4>';
+                          
+                      }else if($userRol->rol_id == '3'){
+                          
+                           echo '<h4><a href="index.php?r=riesgo/index">Inicio</a></h4>';
+                          
+                  }
+                  
+                      }else{
+                          
+                           echo '<h4><a href="index.php?r=site/page&view=about">Acerca De</a></h4>';
+                          
+                      } ?>  
+                        
+                     
+                        
                         <ul>
 <!--                            <li><a href="#">Subheading 2.1</a></li>
                             <li><a href="#">Subheading 2.2</a></li>
