@@ -1,7 +1,7 @@
 <?php
 /* @var $this RiesgoController */
 /* @var $model Riesgo */
-
+$this->pageTitle=Yii::app()->name . ' - Actualizar Riesgo';
 $this->breadcrumbs=array(
 	'Riesgos'=>array('index'),
 	$model->id_riesgo=>array('view','id'=>$model->id_riesgo),
@@ -66,6 +66,6 @@ $usuario = Yii::app()->user->id;
 
 ?>
 
-<h1>Actualizar Riesgo <?php echo $model->id_riesgo; ?></h1>
+<h1>Actualizar Riesgo #<?php echo $model->id_riesgo; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

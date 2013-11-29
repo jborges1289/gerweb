@@ -31,7 +31,7 @@ $usuario = Yii::app()->user->id;
 
 
    if($userRol->rol_id== '2'){
-
+$this->pageTitle=Yii::app()->name . ' - Gestión de Admin Riesgos';
 $this->menu=array(
 	
 	array('label'=>'Crear Riesgo', 'url'=>array('create')),

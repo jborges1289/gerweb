@@ -27,7 +27,7 @@ $usuario = Yii::app()->user->id;
     
     
      if($userRol->rol_id== '1'){
-         
+         $this->pageTitle=Yii::app()->name . ' - Lista Admin de Riesgos';
           $this->breadcrumbs=array(
 	'Usuarios'=>'',
         'Listar Admin de Riesgos',
@@ -50,6 +50,7 @@ $usuario = Yii::app()->user->id;
      
      }else if($userRol->rol_id== '2'){
          
+         $this->pageTitle=Yii::app()->name . ' - Listar Integrantes de Riesgos';
            $this->breadcrumbs=array(
 	'Usuarios'=>'',
         'Listar Integrantes de Riesgos',

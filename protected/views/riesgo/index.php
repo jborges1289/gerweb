@@ -1,7 +1,7 @@
 <?php
 /* @var $this RiesgoController */
 /* @var $dataProvider CActiveDataProvider */
-
+$this->pageTitle=Yii::app()->name . ' - Listar Riesgos';
 $this->breadcrumbs = array(
     'Riesgos' => '',
     'Listar Riesgos'
@@ -64,7 +64,7 @@ if ($userRol->rol_id == '1') {
 }
 ?>
 
-<h1>Riesgos</h1>
+<h1>Listar Riesgos</h1>
 
 <?php
 $this->widget('zii.widgets.CListView', array(

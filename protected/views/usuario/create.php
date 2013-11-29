@@ -25,7 +25,7 @@ $usuario = Yii::app()->user->id;
     
     
      if($userRol->rol_id== '1'){
-         
+         $this->pageTitle=Yii::app()->name . ' - Crear Admin de Riesgos';
          $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
 	'Crear Admin de Riesgos',
@@ -47,6 +47,8 @@ $usuario = Yii::app()->user->id;
          echo '<h1>Crear Admin de Riesgos</h1>';
          
      }else if($userRol->rol_id=='2'){
+         
+         $this->pageTitle=Yii::app()->name . ' - Crear Integrante de Riesgos';
          $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
 	'Crear Integrante de Riesgos',

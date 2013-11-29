@@ -1,7 +1,7 @@
 <?php
 /* @var $this ProyectoController */
 /* @var $dataProvider CActiveDataProvider */
-
+$this->pageTitle=Yii::app()->name . ' - Listar Proyectos';
 $this->breadcrumbs=array(
 	'Proyectos'=>array('index'),
 	'Listar Proyectos',

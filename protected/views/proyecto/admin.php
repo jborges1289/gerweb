@@ -2,6 +2,7 @@
 /* @var $this ProyectoController */
 /* @var $model Proyecto */
 
+$this->pageTitle=Yii::app()->name . ' - Gestión de Proyectos';
 $this->breadcrumbs=array(
 	'Proyectos'=>array('index'),
 	'Gestión de Proyectos',
@@ -67,7 +68,7 @@ $('.search-form form').submit(function(){
 
 <p>
 También puede escribir un operador de comparación(<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar cómo se debe hacer la comparación.
+o <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar cómo se debe hacer la comparación.
 </p>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>

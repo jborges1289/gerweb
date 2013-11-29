@@ -32,7 +32,7 @@ $usuario = Yii::app()->user->id;
 
    if($userRol->rol_id== '1'){
 
-
+$this->pageTitle=Yii::app()->name . ' - Ver Admin de Riesgos';
 
 $this->menu=array(
 	 
@@ -47,8 +47,12 @@ $this->menu=array(
         array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
 );
 
+echo '<h1> Admin de Riesgos # '.$model->id_usuario.'</h1>';
 
    }else if($userRol->rol_id== '2'){
+       
+       
+$this->pageTitle=Yii::app()->name . ' - Ver Integrantes de Riesgos';
        
        $this->menu=array(
 	
@@ -64,10 +68,11 @@ $this->menu=array(
         array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
 );
        
+echo '<h1> Integrantes de Riesgos # '.$model->id_usuario.'</h1>';
+
    }
 ?>
 
-<h1>Usuario #<?php echo $model->id_usuario; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

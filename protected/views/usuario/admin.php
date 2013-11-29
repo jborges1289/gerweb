@@ -42,7 +42,7 @@ $('.search-form form').submit(function(){
 
 
 <?php if($userRol->rol_id =='1'){
-    
+    $this->pageTitle=Yii::app()->name . ' - Gestión de Admin de Riesgos';
     $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
 	'Gestión Admin de Riesgos',
@@ -69,6 +69,8 @@ $('.search-form form').submit(function(){
    
     
 }else if($userRol->rol_id=='2'){
+    
+    $this->pageTitle=Yii::app()->name . ' - Gestión de Integrantes de Riesgos';
     $this->breadcrumbs=array(
 	'Usuarios'=>array('index'),
 	'Gestión de Integrantes de Riesgos',

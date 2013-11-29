@@ -1,7 +1,7 @@
 <?php
 /* @var $this RiesgoController */
 /* @var $model Riesgo */
-
+$this->pageTitle=Yii::app()->name . ' - Ver Riesgo';
 $this->breadcrumbs = array(
     'Riesgos' => array('index'),
     $model->id_riesgo,

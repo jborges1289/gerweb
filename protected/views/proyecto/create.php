@@ -1,7 +1,7 @@
 <?php
 /* @var $this ProyectoController */
 /* @var $model Proyecto */
-
+$this->pageTitle=Yii::app()->name . ' - Crear Proyecto';
 $this->breadcrumbs=array(
 	'Proyectos'=>array('index'),
 	'Crear Proyectos',

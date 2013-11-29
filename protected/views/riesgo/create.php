@@ -1,7 +1,7 @@
 <?php
 /* @var $this RiesgoController */
 /* @var $model Riesgo */
-
+  $this->pageTitle=Yii::app()->name . ' - Crear Riesgo';
 $this->breadcrumbs=array(
 	'Riesgos'=>'',
 	'Crear Riesgo',
@@ -34,7 +34,7 @@ $usuario = Yii::app()->user->id;
          
          
      }else if($userRol->rol_id=='2'){
-         
+       
          $this->menu=array(
          
 //        array('label'=>'Crear Riesgo', 'url'=>array('create')),

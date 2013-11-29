@@ -33,7 +33,8 @@ $usuario = Yii::app()->user->id;
 
    if($userRol->rol_id== '1'){
 
-
+$this->pageTitle=Yii::app()->name . ' - Actualizar Admin de Riesgos';
+       
 $this->menu=array(
 	
 //	array('label'=>'View Usuario', 'url'=>array('view', 'id'=>$model->id_usuario)),
@@ -51,9 +52,12 @@ $this->menu=array(
     
 );
 
+
+echo '<h1>Actualizar Admin de Riesgos #'.$model->id_usuario.'</h1>';
+
    }else if($userRol->rol_id =='2'){
        
-       
+       $this->pageTitle=Yii::app()->name . ' - Actualizar Integrante de Riesgos';
        $this->menu=array(
         
         array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
@@ -70,6 +74,5 @@ $this->menu=array(
    }
 ?>
 
-<h1>Actualizar Usuario <?php echo $model->id_usuario; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
