@@ -143,8 +143,47 @@ foreach ($admon_proy as $value) {
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Proyecto');
-		$this->render('index',array(
+            
+            
+            $usuario = Yii::app()->user->id;
+
+
+        $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+
+
+        $usuario_rol_id = $users->id_usuario;
+
+        $userRol = UsuarioRol::model()->find(array(
+            'condition' => 'usuario_id=:usuario_id',
+            'params' => array(':usuario_id' => $usuario_rol_id),
+                )
+        );
+
+
+
+        if ($userRol->rol_id == '1') {
+
+        $model = new Proyecto();
+   
+        $dataProvider = new CActiveDataProvider($model, array(
+        
+        'criteria'=>array(
+        'select' => '*',
+         
+        'condition'=>'administrador = '.$usuario_rol_id.'',
+        )
+            
+           ));
+        
+        }
+            
+	
+        $this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}

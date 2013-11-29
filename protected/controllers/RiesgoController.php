@@ -200,9 +200,43 @@ class RiesgoController extends Controller {
         )
             
            ));
+    }elseif ($userRol->rol_id == '2') {
+           
+        $model = new Riesgo();
+   
+        $dataProvider = new CActiveDataProvider($model, array(
+        
+       'criteria'=>array(
+        'select' => 't.*, p.*',
+        'join' => 'INNER JOIN proyecto p ON t.id_proyecto = p.id_proyecto',    
+        'condition'=>'p.admin_riesgo = '.$usuario_rol_id.'',
+        )
+            
+           ));
+            
+        }else if($userRol->rol_id == '3'){
+            
+            $id = EquipoRiesgo::model()->find(array(
+                
+                'select'=>'admin_riesgos',
+                'condition' => 'equipo_riesgo ='.$usuario_rol_id.'',
+            ));
+            
+         $id_admin_riesgo = $id->admin_riesgos;
 
-
-    }
+            $model = new Riesgo();
+   
+        $dataProvider = new CActiveDataProvider($model, array(
+        
+       'criteria'=>array(
+        'select' => 't.*, p.*',
+        'join' => 'INNER JOIN proyecto p ON t.id_proyecto = p.id_proyecto',    
+        'condition'=>'p.admin_riesgo = '.$id_admin_riesgo.'',
+        )
+            
+           ));
+            
+        }
         
         $this->render('index', array(
             'dataProvider' => $dataProvider,
