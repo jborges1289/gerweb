@@ -35,6 +35,7 @@ Yii::app()->clientscript
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style.css" />
         
         <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="<?php echo Yii::app()->theme->baseUrl.'/img/logo_riesgo.png'?>" type="imagen/png"/>
     </head>
 
 
