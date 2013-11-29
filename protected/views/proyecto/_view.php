@@ -28,14 +28,19 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_fin')); ?>:</b>
 	<?php echo CHtml::encode($data->fecha_fin); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('administrador')); ?>:</b>
-	<?php echo CHtml::encode($data->administrador); ?>
+        
+        <b><?php echo CHtml::encode($data->getAttributeLabel('Administrador Riesgos')); ?>:</b>
+        <?php $admin_riesgos=  Usuario::model()->findByPk($data->admin_riesgo); ?>
+	<?php echo CHtml::encode($admin_riesgos->nombres); ?>
 	<br />
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_riesgo')); ?>:</b>
 	<?php echo CHtml::encode($data->admin_riesgo); ?>
+	<br />
+         * 
+         * <b><?php echo CHtml::encode($data->getAttributeLabel('administrador')); ?>:</b>
+	<?php echo CHtml::encode($data->administrador); ?>
 	<br />
       
 	*/ ?>

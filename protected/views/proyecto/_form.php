@@ -4,22 +4,16 @@
 /* @var $form CActiveForm */
 
 
-$oDBC = new CDbCriteria();
-$oDBC->select = 't.*,p.*'; 
-$oDBC->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
-$oDBC->condition = 'p.rol_id = 1 ';
-
-$admon_proy = Usuario::model()->findAll($oDBC);
+$userSession = Yii::app()->user->id;
+$admin = Usuario::model()->find('usuario=:user', array(':user' => $userSession));
 
 
 $query = new CDbCriteria();
-$query->select = 't.*,p.*'; 
-$query->join = 'LEFT JOIN usuario_rol p ON t.id_usuario = p.usuario_id'; 
-$query->condition = 'p.rol_id = 2 ';
+$query->select = 't.*,p.*';
+$query->join = 'LEFT JOIN admin_admin p ON t.id_usuario = p.administrador_riesgo';
+$query->condition = 'p.administrador= '.$admin->id_usuario;
 
 $admon_ries = Usuario::model()->findAll($query);
-
-
 ?>
 
 
@@ -29,36 +23,37 @@ $admon_ries = Usuario::model()->findAll($query);
 
 <div class="form">
 
-    <?php
-    $form = $this->beginWidget('CActiveForm', array(
-        'id' => 'proyecto-form',
-        // Please note: When you enable ajax validation, make sure the corresponding
-        // controller action is handling ajax validation correctly.
-        // There is a call to performAjaxValidation() commented in generated controller code.
-        // See class documentation of CActiveForm for details on this.
-        'enableAjaxValidation' => false,
-    ));
-    ?>
+<?php
+$form = $this->beginWidget('CActiveForm', array(
+    'id' => 'proyecto-form',
+    // Please note: When you enable ajax validation, make sure the corresponding
+    // controller action is handling ajax validation correctly.
+    // There is a call to performAjaxValidation() commented in generated controller code.
+    // See class documentation of CActiveForm for details on this.
+    'enableAjaxValidation' => false,
+        ));
+?>
 
     <p class="note">Los campos con <span class="required">*</span> son requeridos.</p>
 
-    <?php echo $form->errorSummary($model); ?>
+<?php echo $form->errorSummary($model); ?>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'titulo'); ?>
+<?php echo $form->labelEx($model, 'titulo'); ?>
         <?php echo $form->textField($model, 'titulo', array('size' => 60, 'maxlength' => 95)); ?>
         <?php echo $form->error($model, 'titulo'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'descripcion'); ?>
+<?php echo $form->labelEx($model, 'descripcion'); ?>
         <?php echo $form->textArea($model, 'descripcion', array('rows' => 6, 'cols' => 50)); ?>
         <?php echo $form->error($model, 'descripcion'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'tipo_proyecto'); ?>
-        <?php echo $form->dropDownList($model, 'tipo_proyecto', array('web' => 'Web',
+<?php echo $form->labelEx($model, 'tipo_proyecto'); ?>
+        <?php
+        echo $form->dropDownList($model, 'tipo_proyecto', array('web' => 'Web',
             'escritorio' => 'Escritorio',), array('empty' => 'Seleccione el tipo'));
         ?>
         <?php echo $form->error($model, 'tipo_proyecto'); ?>
@@ -110,8 +105,7 @@ $admon_ries = Usuario::model()->findAll($query);
     <div class="row">
         <?php echo $form->labelEx($model, 'administrador'); ?>
         <?php
-        $admin = CHtml::listData($admon_proy, 'id_usuario', 'nombres');
-        echo $form->dropDownList($model, 'administrador', $admin, array('empty' => 'Seleccione Administrador'));
+        echo $form->hiddenField($model, 'administrador', array('value' => $admin->id_usuario));
         ?>
         <?php echo $form->error($model, 'administrador'); ?>
     </div>
@@ -125,8 +119,9 @@ $admon_ries = Usuario::model()->findAll($query);
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Registrar' : 'Editar'); 
-        echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Registrar' : 'Editar');
+        echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px', 'onClick' => 'history.go(-1)'));
+        ?>
     </div>
 
     <?php $this->endWidget(); ?>

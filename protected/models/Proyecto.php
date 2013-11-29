@@ -35,7 +35,7 @@ class Proyecto extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('titulo, descripcion, tipo_proyecto, fecha_inicio, fecha_fin, administrador, admin_riesgo', 'required'),
+            array('titulo, descripcion, tipo_proyecto, fecha_inicio, fecha_fin, admin_riesgo', 'required'),
             array('titulo', 'length', 'max' => 95),
             array('tipo_proyecto', 'length', 'max' => 10),
             array('administrador, admin_riesgo', 'length', 'max' => 10),
@@ -71,7 +71,7 @@ class Proyecto extends CActiveRecord {
             'tipo_proyecto' => 'Tipo Proyecto',
             'fecha_inicio' => 'Fecha Inicio',
             'fecha_fin' => 'Fecha Fin',
-            'administrador' => 'Administrador',
+            'administrador' => '',
             'admin_riesgo' => 'Admin Riesgo',
         );
     }
