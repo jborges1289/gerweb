@@ -32,6 +32,12 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha')); ?>:</b>
 	<?php echo CHtml::encode($data->fecha); ?>
 	<br />
+        
+        <b><?php echo CHtml::encode($data->getAttributeLabel('proyecto')); ?>:</b>
+        <?php $proyecto=Proyecto::model()->findByPk($data->id_proyecto); ?>
+	<?php echo CHtml::encode($proyecto->titulo); ?>
+	<br />
+        <br />
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('descripcion')); ?>:</b>
