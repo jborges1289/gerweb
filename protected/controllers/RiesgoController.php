@@ -164,7 +164,46 @@ class RiesgoController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('Riesgo');
+        
+        $usuario = Yii::app()->user->id;
+
+
+     $users = Usuario::model()->find(array(
+            'select' => 'id_usuario',
+            'condition' => 'usuario=:usuario',
+            'params' => array(':usuario' => $usuario),
+                )
+        );
+    
+        
+   $usuario_rol_id = $users->id_usuario;
+   
+    $userRol = UsuarioRol::model()->find(array(
+        'condition' => 'usuario_id=:usuario_id',
+        'params' => array(':usuario_id' => $usuario_rol_id),
+            )
+    );
+
+    
+    
+    if($userRol->rol_id =='1'){
+        
+        $model = new Riesgo();
+      
+       
+        $dataProvider = new CActiveDataProvider($model, array(
+        
+        'criteria'=>array(
+        'select' => 't.*, p.*',
+        'join' => 'INNER JOIN proyecto p ON t.id_proyecto = p.id_proyecto',    
+        'condition'=>'p.administrador = '.$usuario_rol_id.'',
+        )
+            
+           ));
+
+
+    }
+        
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));

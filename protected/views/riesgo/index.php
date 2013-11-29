@@ -57,6 +57,7 @@ if ($userRol->rol_id == '1') {
 } else if ($userRol->rol_id == '3') {
 
     $this->menu = array(
+        
         array('label' => 'Crear Riesgo', 'url' => array('create')),
 //	array('label'=>'Listar Riesgos', 'url'=>array('index')),
     );
@@ -75,7 +76,7 @@ $this->widget('zii.widgets.CListView', array(
     <br>
 <br>
 <?php
-if($userRol->rol_id== '1' || $userRol =='2'){
+if($userRol->rol_id== '1' || $userRol->rol_id =='2'){
 echo CHtml::Button('Volver a página anterior', array('style' => 'margin-left: 10px','onClick'=>'history.go(-1)'));
 }
 ?>
