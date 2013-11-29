@@ -72,8 +72,10 @@ $this->breadcrumbs = array(
 
     <div class="row buttons">
         <?php echo CHtml::submitButton('Entrar'); 
-        echo CHtml::link('*Registrarse como Administrador',array('usuario/registro'),array('style' => 'margin-left: 10px'))
         ?>
+    </div>
+    <div class="row buttons">
+         <?php echo CHtml::link('¿Desea registrarse?',array('usuario/registro'),array('style' => 'margin-left: 115px'))?>
     </div>
 
     <?php $this->endWidget(); ?>
