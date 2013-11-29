@@ -249,17 +249,45 @@ if (!Yii::app()->user->isGuest) {
                         </ul>
                     </div> <!-- /span3 -->
 
-<!--                    <div class="col-md-3">
-                        <h4>Heading 3</h4>	
-                        <ul>
+                    <div class="col-md-3">
+                       
+                        
+                               <?php 
+                   
+                  if (!Yii::app()->user->isGuest) { 
+                      
+                      if ($userRol->rol_id == '1'){
+                          
+//                          echo '<h4><a href="index.php?r=site/logout">Salir (' . Yii::app()->user->name . ')</a></h4>';
+                          
+                      }else if($userRol->rol_id == '2'){
+                          
+//                           echo '<h4><a href="index.php?r=site/logout">Salir (' . Yii::app()->user->name . ')</a></h4>';
+                          
+                      }else if($userRol->rol_id == '3'){
+                          
+//                           echo '<h4><a href="index.php?r=riesgo/index">Inicio</a></h4>';
+                          
+                  }
+                  
+                      }else{
+                          
+                           echo '<h4><a href="index.php?r=site/contact">Contacto</a></h4>';
+                          
+                      } ?>  
+                        
+                        
+                        
+                        
+<!--                        <ul>
                             <li><a href="#">Subheading 3.1</a></li>
                             <li><a href="#">Subheading 3.2</a></li>
                             <li><a href="#">Subheading 3.3</a></li>
                             <li><a href="#">Subheading 3.4</a></li>
-                        </ul>
-                    </div>  /span3 
+                        </ul>-->
+                    </div>  
 
-                    <div class="col-md-3">
+<!--                    <div class="col-md-3">
                         <h4>Heading 4</h4>
                         <ul>
                             <li><a href="#">Subheading 4.1</a></li>

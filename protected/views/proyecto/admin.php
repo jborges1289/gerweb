@@ -89,7 +89,6 @@ o <b>=</b>) al comienzo de cada uno de sus valores de búsqueda para especificar
 		'tipo_proyecto',
 		'fecha_inicio',
 		'fecha_fin',
-		
 		'administrador',
 		'admin_riesgo',
 		

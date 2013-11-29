@@ -103,11 +103,11 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'administrador'); ?>
+        <?php // echo $form->labelEx($model, 'administrador'); ?>
         <?php
         echo $form->hiddenField($model, 'administrador', array('value' => $admin->id_usuario));
         ?>
-        <?php echo $form->error($model, 'administrador'); ?>
+        <?php // echo $form->error($model, 'administrador'); ?>
     </div>
     <div class="row">
         <?php echo $form->labelEx($model, 'admin_riesgo'); ?>

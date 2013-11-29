@@ -71,7 +71,7 @@ class Proyecto extends CActiveRecord {
             'tipo_proyecto' => 'Tipo Proyecto',
             'fecha_inicio' => 'Fecha Inicio',
             'fecha_fin' => 'Fecha Fin',
-            'administrador' => '',
+            'administrador' => 'Admin Proyecto',
             'admin_riesgo' => 'Admin Riesgo',
         );
     }
