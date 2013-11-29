@@ -29,7 +29,7 @@ $this->breadcrumbs = array(
 
 <h1>Ingresar</h1>
 
-<p class="alert alert-info">Por favor complete el siguiente formulario con sus datos de acceso:</p>
+<p class="">Por favor complete el siguiente formulario con sus datos de acceso:</p>
 
 <div class="form">
     <?php
@@ -71,3 +71,9 @@ $this->breadcrumbs = array(
 
     <?php $this->endWidget(); ?>
 </div><!-- form -->
+
+<div class='logo'>
+    <?php
+   echo CHtml::image(Yii::app()->theme->baseUrl.'/img/logo_riesgo.png'); 
+    ?>
+</div>

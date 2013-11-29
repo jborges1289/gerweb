@@ -112,8 +112,9 @@ button,
 select,
 textarea {
   font-size: 13px;
-  font-weight: normal;
+  font-weight: 500;
   line-height: 18px;
+  
 }
 input,
 button,
@@ -551,3 +552,13 @@ span.required{
     
     color:red;
 }
+
+div .logo img{
+    height: 225px;
+    width: 325px;
+    float: right;
+    margin: -225px 250px 0 0;
+    
+}
+
+ 
