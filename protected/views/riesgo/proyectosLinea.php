@@ -65,7 +65,7 @@ echo '<h1>Proyectos</h1>'
                 $tablaProyectos.='<td>' . $proyecto->tipo_proyecto. '</td>';
                 $tablaProyectos.='<td>' . $proyecto->fecha_inicio . '</td>';
                 $tablaProyectos.='<td>' . $proyecto->fecha_fin . '</td>';
-                $tablaProyectos.='<td>'. CHtml::link('Linea de '.$proyecto->titulo,array('riesgo/lineaDeCorte','proyecto'=>$proyecto->id_proyecto), array( 'onClick' => 'history.go(-1)')). '</td>';
+                $tablaProyectos.='<td>'. CHtml::link('Linea de '.$proyecto->titulo,array('riesgo/lineaDeCorte','proyecto'=>$proyecto->id_proyecto)). '</td>';
                 $tablaProyectos.='</tr>';
             }
             $tablaProyectos.= '</table>';
