@@ -42,7 +42,7 @@ $this->breadcrumbs = array(
     ));
     ?>
 
-    <p class="note">Campos con <span class="required" >*</span> son requeridos.</p>
+    <p class="note">Campos con <span class="required" ><b style="color:red;">*</b></span> son requeridos.</p>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'username'); ?>
