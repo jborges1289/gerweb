@@ -27,7 +27,9 @@ $this->breadcrumbs = array(
 );
 ?>
 
-<h1>Ingresar</h1>
+<h1>Bienvenido a la aplicación GERWEB</h1>
+
+<h4>Ingresar</h4>
 
 <?php 
     if($mensaje){

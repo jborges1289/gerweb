@@ -63,19 +63,22 @@ Si tiene consultas comerciales u otras preguntas, por favor, rellene el siguient
 
 	<?php if(CCaptcha::checkRequirements()): ?>
 	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
+		
 		<div>
+               <?php echo $form->labelEx($model,'verifyCode'); ?>
 		<?php $this->widget('CCaptcha'); ?>
 		<?php echo $form->textField($model,'verifyCode'); ?>
+                     <?php echo $form->error($model,'verifyCode'); ?>
 		</div>
+           
 		<div class="hint">Por favor, introduzca las letras que se muestran en la imagen de arriba.
 		<br/>Las letras no distinguen entre mayúsculas y minúsculas</div>
-		<?php echo $form->error($model,'verifyCode'); ?>
+		
 	</div>
 	<?php endif; ?>
-
+        <br>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('ENVIAR'); ?>
+		<?php echo CHtml::submitButton('Enviar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
