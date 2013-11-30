@@ -25,8 +25,8 @@ particularmente en <br>proyectos de desarrollo de software.</p>
    echo CHtml::image(Yii::app()->theme->baseUrl.'/img/logo_riesgo.png'); 
     ?>
 </div>
-<br><br><br>
-<div>
-<?php echo CHtml::button('Presiona aquí', array('submit' => array('login'))); ?>
+<br>
+<div class="row buttons">
+<?php echo CHtml::link('Presiona aquí', array('site/login'),array('style'=>'color: orange;','style' => 'margin-left: 175px')); ?>
 </div>
 
