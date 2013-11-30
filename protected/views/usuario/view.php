@@ -63,7 +63,7 @@ $this->pageTitle=Yii::app()->name . ' - Ver Integrantes de Riesgos';
         array(),
         array('label'=>'Actualizar Integrante de Riesgos', 'url'=>array('update', 'id'=>$model->id_usuario)),   
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
-        array('label'=>'Eliminar Admin de Riesgos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_usuario),'confirm'=>'¿Está seguro que desea borrar este elemento??')),
+        array('label'=>'Eliminar Integrante de Riesgos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_usuario),'confirm'=>'¿Está seguro que desea eliminar a este Integrante?')),
 //        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
         array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
 );

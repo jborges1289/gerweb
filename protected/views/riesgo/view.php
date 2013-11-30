@@ -57,9 +57,10 @@ if ($userRol->rol_id == '1') {
 } else if ($userRol->rol_id == '3') {
 
     $this->menu = array(
-//	array('label'=>'Listar Riesgo', 'url'=>array('index')),
+//	
         array('label' => 'Crear Riesgo', 'url' => array('create')),
         array('label' => 'Actualizar Riesgo', 'url' => array('update', 'id' => $model->id_riesgo)),
+        array('label'=>'Listar Riesgo', 'url'=>array('index')),
     );
 }
 ?>
@@ -83,14 +84,14 @@ $this->widget('zii.widgets.CDetailView', array(
         'factores_influyen',
         'reduccion',
         'plan_contigencia',
-        array(
-            'label' => 'Redactor',
-            'value' => $redactor->nombres,
-        ),
-        array(
-            'label' => 'Responsable',
-            'value' => $responsable->nombres,
-        ),
+//        array(
+//            'label' => 'Redactor',
+//            'value' => $redactor->nombres,
+//        ),
+//        array(
+//            'label' => 'Responsable',
+//            'value' => $responsable->nombres,
+//        ),
         'idProyecto.titulo',
     //'linea_corte',
     ),

@@ -230,7 +230,7 @@ if (!Yii::app()->user->isGuest) {
                           
                       }else if($userRol->rol_id == '3'){
                           
-                           echo '<h4><a href="index.php?r=riesgo/index">Inicio</a></h4>';
+                          echo '<h4><a href="index.php?r=site/logout">Salir (' . Yii::app()->user->name . ')</a></h4>';
                           
                   }
                   

@@ -38,7 +38,6 @@ if ($userRol->rol_id == '1') {
         array('' => '', 'url' => array('#')),
         array('label' => 'Crear Admin de Riesgos', 'url' => array('usuario/create')),
         array('label' => 'Gestión Admin de Riesgos', 'url' => array('usuario/admin')),
-        array('' => '', 'url' => array('#')),
         array('label' => 'Listar Admin de Riesgos', 'url' => array('usuario/index')),
     );
 } else if ($userRol->rol_id == '2') {
