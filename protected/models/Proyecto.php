@@ -65,14 +65,14 @@ class Proyecto extends CActiveRecord {
      */
     public function attributeLabels() {
         return array(
-            'id_proyecto' => 'Id Proyecto',
-            'titulo' => 'Titulo',
-            'descripcion' => 'Descripcion',
-            'tipo_proyecto' => 'Tipo Proyecto',
-            'fecha_inicio' => 'Fecha Inicio',
-            'fecha_fin' => 'Fecha Fin',
+            'id_proyecto' => 'ID',
+            'titulo' => 'Título',
+            'descripcion' => 'Descripción',
+            'tipo_proyecto' => 'Tipo',
+            'fecha_inicio' => 'Fecha de Inicio',
+            'fecha_fin' => 'Fecha de Fin',
             'administrador' => 'Admin Proyecto',
-            'admin_riesgo' => 'Admin Riesgo',
+            'admin_riesgo' => 'Admin Riesgos',
         );
     }
 

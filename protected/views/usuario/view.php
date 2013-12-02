@@ -59,7 +59,7 @@ $this->pageTitle=Yii::app()->name . ' - Ver Integrantes de Riesgos';
 	array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
         array('label'=>'Gestión de Riesgos', 'url'=>array('riesgo/admin')),
         array('label'=>'Linea de Corte de Riesgos', 'url'=>array('riesgo/lineaCorte')),
-        array('label'=>'Listar Riesgo', 'url'=>array('riesgo/index')),       
+        array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),       
         array(),
         array('label'=>'Actualizar Integrante de Riesgos', 'url'=>array('update', 'id'=>$model->id_usuario)),   
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),

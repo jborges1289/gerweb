@@ -33,7 +33,7 @@ $this->breadcrumbs = array(
 
 <?php 
     if($mensaje){
-        echo '<p class="" style="color:red;">Felicidades!!. Se ha registrado como Administrador, ahora Logueese</p>';
+        echo '<p class="alert alert-success"> ¡Felicidades!, se ha registrado correctamente, ya puede iniciar sesión.</p>';
     }
 ?>
 <p class="">Por favor complete el siguiente formulario con sus datos de acceso:</p>

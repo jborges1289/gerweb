@@ -28,7 +28,7 @@ $this->menu = array(
 );
 ?>
 
-<h1> Proyecto #<?php echo $model->id_proyecto; ?></h1>
+<h1> Ver Proyecto #<?php echo $model->id_proyecto; ?></h1>
 
 <?php
 $administrador = Usuario::model()->findByPk($model->administrador);

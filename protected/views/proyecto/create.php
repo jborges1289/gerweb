@@ -4,7 +4,7 @@
 $this->pageTitle=Yii::app()->name . ' - Crear Proyecto';
 $this->breadcrumbs=array(
 	'Proyectos'=>array('index'),
-	'Crear Proyectos',
+	'Crear Proyecto',
 );
 
 $this->menu=array(

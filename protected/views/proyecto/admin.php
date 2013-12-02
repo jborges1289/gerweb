@@ -5,7 +5,7 @@
 $this->pageTitle=Yii::app()->name . ' - Gestión de Proyectos';
 $this->breadcrumbs=array(
 	'Proyectos'=>array('index'),
-	'Gestión de Proyectos',
+	'Gestión de Proyecto',
 );
 
 

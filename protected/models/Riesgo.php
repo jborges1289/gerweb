@@ -73,17 +73,17 @@ class Riesgo extends CActiveRecord {
      */
     public function attributeLabels() {
         return array(
-            'id_riesgo' => 'Id Riesgo',
+            'id_riesgo' => 'ID',
             'nombre' => 'Nombre',
-            'categoria' => 'Categoria',
+            'categoria' => 'Categoría',
             'tipo' => 'Tipo',
             'probabilidad' => 'Probabilidad',
             'impacto' => 'Impacto',
             'fecha' => 'Fecha',
-            'descripcion' => 'Descripcion',
+            'descripcion' => 'Descripción',
             'factores_influyen' => 'Factores Influyen',
-            'reduccion' => 'Reduccion',
-            'plan_contigencia' => 'Plan Contigencia',
+            'reduccion' => 'Reducción',
+            'plan_contigencia' => 'Plan de Contigencia',
             'redactor' => 'Redactor',
             'responsable' => 'Responsable',
             'id_proyecto' => 'Proyecto',

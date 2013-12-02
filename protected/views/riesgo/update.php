@@ -55,7 +55,7 @@ $usuario = Yii::app()->user->id;
          $this->menu=array(
 	
 	array('label'=>'Crear Riesgo', 'url'=>array('create')),
-        array('label'=>'Listar Riesgo', 'url'=>array('index')),
+        array('label'=>'Listar Riesgos', 'url'=>array('index')),
 //	array('label'=>'Ver Riesgo', 'url'=>array('view', 'id'=>$model->id_riesgo)),
 	
 );

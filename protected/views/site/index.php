@@ -27,6 +27,6 @@ particularmente en <br>proyectos de desarrollo de software.</p>
 </div>
 <br>
 <div class="row buttons">
-<?php echo CHtml::link('Presiona aquí', array('site/login'),array('style'=>'color: orange;','style' => 'margin-left: 175px')); ?>
+<?php echo CHtml::link('Presiona aquí', array('site/login'),array('style'=>'color: orange;','style' => 'margin-left: 175px','class'=>'btn btn-info')); ?>
 </div>
 

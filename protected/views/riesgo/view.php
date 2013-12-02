@@ -60,7 +60,7 @@ if ($userRol->rol_id == '1') {
 //	
         array('label' => 'Crear Riesgo', 'url' => array('create')),
         array('label' => 'Actualizar Riesgo', 'url' => array('update', 'id' => $model->id_riesgo)),
-        array('label'=>'Listar Riesgo', 'url'=>array('index')),
+        array('label'=>'Listar Riesgos', 'url'=>array('index')),
     );
 }
 ?>
