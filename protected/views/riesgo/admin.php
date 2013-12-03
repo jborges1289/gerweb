@@ -37,6 +37,7 @@ $this->menu=array(
 	array('label'=>'Crear Riesgo', 'url'=>array('create')),
         array('label'=>'Linea de Corte de Riesgos', 'url'=>array('lineaCorte')),
         array('label'=>'Listar Riesgos', 'url'=>array('index')),
+        array('label'=>'Frecuencia de Riesgos', 'url'=>array('riesgo/frecuencia')),
         
         array(),
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),

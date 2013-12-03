@@ -62,7 +62,7 @@ if($userRol->rol_id== '1'){
 $flashChart = Yii::createComponent('application.extensions.openflashchart.EOFC2');
 
 $flashChart->begin('Categoria');
-$flashChart->setTitle('Frecuencia por Categoría','{color:#880a88;font-size:15px;padding-bottom:20px;}');
+$flashChart->setTitle('Frecuencia por Categoría','{color:747474;font-size:15px;padding-bottom:20px;}');
  
 $data['1']['Riesgo']['categoria'] = 'Proyecto';
 $data['1']['Riesgo']['cantidad'] = $proyecto;
@@ -75,8 +75,8 @@ $flashChart->setData($data);
 $flashChart->setNumbersPath('{n}.Riesgo.cantidad');
 $flashChart->setLabelsPath('default.{n}.Riesgo.categoria');
  
-$flashChart->setLegend('x','Categorias de Riesgo');
-$flashChart->setLegend('y','Frecuencia', '{color:#AA0aFF;font-size:12px;}');
+$flashChart->setLegend('x','Categoría de Riesgo');
+$flashChart->setLegend('y','Frecuencia', '{color:747474;font-size:12px;}');
  
 $flashChart->axis('x',array('tick_height' => 10,'3d' => -10));
 $flashChart->axis('y',array('range' => array(0,100,5)));

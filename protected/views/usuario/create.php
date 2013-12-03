@@ -60,6 +60,7 @@ $usuario = Yii::app()->user->id;
 	array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
         array('label'=>'Linea de Corte de Riesgos', 'url'=>array('riesgo/lineaCorte')),
         array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+        array('label'=>'Frecuencia de Riesgos', 'url'=>array('riesgo/frecuencia')),
         
         array(),
 //        array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
