@@ -85,7 +85,9 @@ class RiesgoController extends Controller {
                 'users' => $usuariosEquipRiesgo,
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('create', 'update', 'admin', 'delete', 'lineaCorte','lineaDeCorte', 'editarLinea','index','view'),
+                'actions' => array('create', 'update', 
+                    'admin', 'delete', 'lineaCorte','lineaDeCorte',
+                    'editarLinea','index','view','frecuencia'),
                 'users' => $usuariosAdminRiesgo,
             ),
             array('deny', // deny all users
@@ -341,6 +343,14 @@ class RiesgoController extends Controller {
         }
     }
 
+    
+    public function actionFrecuencia(){
+        $riesgosTecnico=$this->frecuenciaCategoriaRiesgo('tecnico');
+        $riesgosNegocio=$this->frecuenciaCategoriaRiesgo('negocio');
+        $riesgosProyecto=$this->frecuenciaCategoriaRiesgo('proyecto');
+        $this->render('frecuenciaRiesgos', array('tecnico'=>$riesgosTecnico,'negocio'=>$riesgosNegocio,'proyecto'=>$riesgosProyecto));
+    }
+
     /**
      * Returns the data model based on the primary key given in the GET variable.
      * If the data model is not found, an HTTP exception will be raised.
@@ -364,6 +374,16 @@ class RiesgoController extends Controller {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+    
+    private function frecuenciaCategoriaRiesgo($categoria){
+        //proyecto, tecnico, negocio
+        $riesgosCategoria= Riesgo::model()->findAll(array(
+            'condition' => 'categoria=:categoria',
+            'params' => array(':categoria' => $categoria),
+                ));
+        $cantidadRiesgo=  count($riesgosCategoria);
+        return $cantidadRiesgo;
     }
 
 }
