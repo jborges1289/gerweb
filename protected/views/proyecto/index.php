@@ -31,14 +31,45 @@ $usuario = Yii::app()->user->id;
      
          $this->menu=array(
     
-        array('label'=>'Crear Proyecto', 'url'=>array('create')),
-//	array('label'=>'Listar Proyectos', 'url'=>array('index')),
-        array(''=>'','url'=>array('#')), 
-        array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),
-        array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
-	array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')),  
-        array(''=>'','url'=>array('#')), 
-	array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+             
+                  array(  
+                        'label'=>'Riesgos', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
+                                 array('label'=>'Crear Proyecto', 'url'=>array('create')),
+//                                 array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+                        )
+                ),
+	
+ 
+              array(  
+                        'label'=>'Usuarios', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
+                                  array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),
+                                  array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),
+                                  array('label'=>'Listar Admin de Riesgos', 'url'=>array('usuario/index')),
+                        )
+                ),
+             
+         array(  
+                        'label'=>'Riesgos', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
+                                array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
+                        )
+                ),
+     
+	
    
 );
         

@@ -35,17 +35,40 @@ $usuario = Yii::app()->user->id;
 $this->pageTitle=Yii::app()->name . ' - Ver Admin de Riesgos';
 
 $this->menu=array(
-	 
+	 array(
+        'label' => 'Proyectos',
+        'url' => '#',
+        'linkOptions ' => array('encode' => false, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
+        'itemOptions ' => array('class' => 'dropdown'),
+        'submenuOptions ' => array('class' => 'dropdown-menu'),
+        'items' => array( 
         array('label'=>'Crear Proyecto', 'url'=>array('proyecto/create')),
 	array('label'=>'Listar Proyectos', 'url'=>array('proyecto/index')),
-        array(''=>'','url'=>array('#')), 
+        )), 
+    
+     array(
+        'label' => 'Usuarios',
+        'url' => '#',
+        'linkOptions ' => array('encode' => false, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
+        'itemOptions ' => array('class' => 'dropdown'),
+        'submenuOptions ' => array('class' => 'dropdown-menu'),
+        'items' => array(
 	array('label'=>'Actualizar Admin de Riesgos', 'url'=>array('update', 'id'=>$model->id_usuario)),
         array('label'=>'Crear Admin de Riesgos', 'url'=>array('usuario/create')),	
         array('label'=>'Eliminar Admin de Riesgos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_usuario),'confirm'=>'¿Está seguro que desea borrar este elemento??')),
 //        array('label'=>'Gestión Admin de Riesgos', 'url'=>array('usuario/admin')),  
-	array(''=>'','url'=>array('#')), 
+	)),
+    
+     array(
+        'label' => 'Riesgos',
+        'url' => '#',
+        'linkOptions ' => array('encode' => false, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
+        'itemOptions ' => array('class' => 'dropdown'),
+        'submenuOptions ' => array('class' => 'dropdown-menu'),
+        'items' => array(
         array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),
-);
+))
+         );
 
 echo '<h1> Admin de Riesgos # '.$model->id_usuario.'</h1>';
 
@@ -55,20 +78,35 @@ echo '<h1> Admin de Riesgos # '.$model->id_usuario.'</h1>';
 $this->pageTitle=Yii::app()->name . ' - Ver Integrantes de Riesgos';
        
        $this->menu=array(
-	
+	 array(
+        'label' => 'Riesgos',
+        'url' => '#',
+        'linkOptions ' => array('encode' => false, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
+        'itemOptions ' => array('class' => 'dropdown'),
+        'submenuOptions ' => array('class' => 'dropdown-menu'),
+        'items' => array(
 	array('label'=>'Crear Riesgo', 'url'=>array('riesgo/create')),
-        array('label'=>'Gestión de Riesgos', 'url'=>array('riesgo/admin')),
+        array('label'=>'Frecuencia de Riesgos', 'url'=>array('riesgo/frecuencia')),
         array('label'=>'Linea de Corte de Riesgos', 'url'=>array('riesgo/lineaCorte')),
         array('label'=>'Listar Riesgos', 'url'=>array('riesgo/index')),       
-        array(),
+        )),
+           
+           array(
+        'label' => 'Usuarios',
+        'url' => '#',
+        'linkOptions ' => array('encode' => false, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
+        'itemOptions ' => array('class' => 'dropdown'),
+        'submenuOptions ' => array('class' => 'dropdown-menu'),
+        'items' => array( 
         array('label'=>'Actualizar Integrante de Riesgos', 'url'=>array('update', 'id'=>$model->id_usuario)),   
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
         array('label'=>'Eliminar Integrante de Riesgos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_usuario),'confirm'=>'¿Está seguro que desea eliminar a este Integrante?')),
 //        array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
         array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
-);
+))
+               );
        
-echo '<h1> Integrantes de Riesgos # '.$model->id_usuario.'</h1>';
+echo '<h1> Integrantes de Riesgos #'.$model->id_usuario.'</h1>';
 
    }
 ?>

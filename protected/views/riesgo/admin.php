@@ -33,17 +33,33 @@ $usuario = Yii::app()->user->id;
    if($userRol->rol_id== '2'){
 $this->pageTitle=Yii::app()->name . ' - Gestión de Admin Riesgos';
 $this->menu=array(
-	
+	   array(
+        'label' => 'Riesgos',
+        'url' => '#',
+        'linkOptions ' => array('encode' => false, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
+        'itemOptions ' => array('class' => 'dropdown'),
+        'submenuOptions ' => array('class' => 'dropdown-menu'),
+        'items' => array(
 	array('label'=>'Crear Riesgo', 'url'=>array('create')),
+        array('label'=>'Frecuencia de Riesgos', 'url'=>array('riesgo/frecuencia')),
         array('label'=>'Linea de Corte de Riesgos', 'url'=>array('lineaCorte')),
         array('label'=>'Listar Riesgos', 'url'=>array('index')),
-        array('label'=>'Frecuencia de Riesgos', 'url'=>array('riesgo/frecuencia')),
         
-        array(),
+        
+        )),
+    
+       array(
+        'label' => 'Usuarios',
+        'url' => '#',
+        'linkOptions ' => array('encode' => false, 'class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'),
+        'itemOptions ' => array('class' => 'dropdown'),
+        'submenuOptions ' => array('class' => 'dropdown-menu'),
+        'items' => array(
         array('label'=>'Crear Integrante de Riesgos', 'url'=>array('usuario/create')),
         array('label'=>'Gestión de Integrantes de Riesgos', 'url'=>array('usuario/admin')),
         array('label'=>'Listar Integrantes de Riesgos', 'url'=>array('usuario/index')),
-);
+))
+           );
    }
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

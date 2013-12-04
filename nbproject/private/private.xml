@@ -4,13 +4,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/views/site/login.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/views/usuario/_formRegister.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/views/usuario/register.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/models/Usuario.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/controllers/UsuarioController.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/views/usuario/create.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/views/usuario/_form.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/themes/blackboot/views/layouts/main.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/gerweb/protected/views/proyecto/admin.php</file>
         </group>
     </open-files>
 </project-private>

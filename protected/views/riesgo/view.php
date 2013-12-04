@@ -33,35 +33,76 @@ $userRol = UsuarioRol::model()->find(array(
 
 if ($userRol->rol_id == '1') {
     $this->menu = array(
+          array(  
+                        'label'=>'Proyectos', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
+        
         array('label' => 'Crear Proyecto', 'url' => array('proyecto/create')),
         array('label' => 'Gestión de Proyectos', 'url' => array('proyecto/admin')),
         array('label' => 'Listar Proyectos', 'url' => array('proyecto/index')),
-        array('' => '', 'url' => array('#')),
+   )),
+        
+          array(  
+                        'label'=>'Usuarios', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
+        
         array('label' => 'Crear Admin de Riesgos', 'url' => array('usuario/create')),
         array('label' => 'Gestión Admin de Riesgos', 'url' => array('usuario/admin')),
         array('label' => 'Listar Admin de Riesgos', 'url' => array('usuario/index')),
-    );
+  ))
+                            );
 } else if ($userRol->rol_id == '2') {
-
-    $this->menu = array(
+  $this->menu = array(
+    array(  
+                        'label'=>'Riesgos', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
+    
         array('label' => 'Actualizar Riesgo', 'url' => array('update', 'id' => $model->id_riesgo)),
         array('label' => 'Crear Riesgo', 'url' => array('create')),
         array('label' => 'Eliminar Riesgo', 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id_riesgo), 'confirm' => 'Seguro desea eliminar este riesgo?')),
+         array('label'=>'Frecuencia de Riesgos', 'url'=>array('riesgo/frecuencia')),
         array('label' => 'Linea de Corte de Riesgos', 'url' => array('lineaCorte')),
 //	array('label'=>'Gestionar Riesgo', 'url'=>array('admin')),
-        array(),
+        )),
+        array(  
+                        'label'=>'Usuarios', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
         array('label' => 'Crear Integrante de Riesgos', 'url' => array('usuario/create')),
         array('label' => 'Gestión de Integrantes de Riesgos', 'url' => array('usuario/admin')),
         array('label' => 'Listar Integrantes de Riesgos', 'url' => array('usuario/index')),
-    );
+  ))
+                            );
 } else if ($userRol->rol_id == '3') {
 
     $this->menu = array(
-//	
+//	  array(  
+            array(            'label'=>'Riesgos', 
+                        'url'=>'#', 
+                        'linkOptions '=> array('encode'=>false, 'class'=>'dropdown-toggle', 'data-toggle'=>'dropdown'),
+                        'itemOptions '=> array('class'=>'dropdown'),
+                        'submenuOptions '=> array('class'=>'dropdown-menu'),
+                        'items'=>array(
         array('label' => 'Crear Riesgo', 'url' => array('create')),
         array('label' => 'Actualizar Riesgo', 'url' => array('update', 'id' => $model->id_riesgo)),
         array('label'=>'Listar Riesgos', 'url'=>array('index')),
-    );
+))
+                            );
 }
 ?>
 
