@@ -1,7 +1,7 @@
 <?php
 Yii::app()->clientscript
 // use it when you need it!
-/*
+
   ->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap.css' )
   ->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap-responsive.css' )
   ->registerCoreScript( 'jquery' )
@@ -17,7 +17,7 @@ Yii::app()->clientscript
   ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-collapse.js', CClientScript::POS_END )
   ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-carousel.js', CClientScript::POS_END )
   ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-typeahead.js', CClientScript::POS_END )
- */
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -53,6 +53,8 @@ Yii::app()->clientscript
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
+                   
+                    
                     <a class="brand" href="#"><?php echo Yii::app()->name ?></a>
                     <div class="nav-collapse">
 <?php

@@ -61,41 +61,13 @@ class SearchController extends Controller
             );
             
  
-            
-            
-        }
-        
-      
-        foreach($riesgos as $riesgo){
-     
-//            $doc->addField(Zend_Search_Lucene_Field::Text('id',
-//                                          CHtml::encode($riesgo->id_riesgo), 'utf-8')
-//            );
-//             $doc->addField(Zend_Search_Lucene_Field::Text('nombres',
-//                                     CHtml::encode($riesgo->nombre), 'utf-8')
-//            );
- 
-            $doc->addField(Zend_Search_Lucene_Field::Text('categoria',
-                                            CHtml::encode($riesgo->categoria)
-                                                , 'utf-8')
-            );   
- 
-            $doc->addField(Zend_Search_Lucene_Field::Text('tipo',
-                                          CHtml::encode($riesgo->tipo)
-                                          , 'utf-8')
-            );
- 
-              $doc->addField(Zend_Search_Lucene_Field::Text('descripcion',
-                                          CHtml::encode($riesgo->descripcion)
-                                          , 'utf-8')
-            );
- 
-            
+              $index->addDocument($doc);
             
         }
         
       
-     $index->addDocument($doc);
+   
+   
         $index->commit();
         
         
